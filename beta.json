@@ -1,0 +1,34 @@
+{
+  "channel": "beta",
+  "supervisor": "147",
+  "homeassistant": {
+    "default": "0.89.0",
+    "qemux86": "0.89.0",
+    "qemux86-64": "0.89.0",
+    "qemuarm": "0.89.0",
+    "qemuarm-64": "0.89.0",
+    "intel-nuc": "0.89.0",
+    "raspberrypi": "0.89.0",
+    "raspberrypi2": "0.89.0",
+    "raspberrypi3": "0.89.0",
+    "raspberrypi3-64": "0.89.0",
+    "tinker": "0.89.0",
+    "odroid-c2": "0.89.0",
+    "odroid-xu": "0.89.0",
+    "orangepi-prime": "0.89.0"
+  },
+  "hassos": {
+    "ova": "2.10",
+    "rpi": "2.10",
+    "rpi0-w": "2.10",
+    "rpi2": "2.10",
+    "rpi3": "2.10",
+    "rpi3-64": "2.10",
+    "tinker": "2.10",
+    "odroid-c2": "2.10",
+    "odroid-xu4": "2.10",
+    "opi-prime": "2.10",
+    "intel-nuc": "2.10"
+  },
+  "hassos-cli": "8"
+}
