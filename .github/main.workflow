@@ -22,5 +22,5 @@ action "Push S3" {
   uses = "actions/aws/cli@efb074ae4510f2d12c7801e4461b65bf5e8317e6"
   needs = ["Master"]
   secrets = ["AWS_ACCESS_KEY_ID", "AWS_SECRET_ACCESS_KEY"]
-  args = "s3 sync . s3://hassio-version"
+  args = "s3 sync . s3://hassio-version --include \"*.json\" --include \"*.txt\""
 }
