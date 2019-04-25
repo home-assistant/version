@@ -22,17 +22,18 @@ jobs:
     displayName: 'Run JQ'
 
 
-- job: 'cec_scan'
+- job: 'S3'
   condition: and(eq(variables['Build.SourceBranchName'], 'master'), succeeded('JQ'))
   dependsOn: 'JQ'
   pool:
     vmImage: 'ubuntu-16.04'
   steps:
   - task: UsePythonVersion@0
-    displayName: 'Use Python $(python.version)'
+    displayName: 'Install Python 3.7'
     inputs:
       versionSpec: '3.7'
   - script: pip install awscli
     displayName: 'Install aws cli'
-  - script: s3 sync . s3://hassio-version --exclude "*" --include "*.json" --include "*.txt"
+  - script: |
+      aws s3 sync . s3://hassio-version --exclude "*" --include "*.json" --include "*.txt"
     displayName: 'Upload data to s3 hassio-version'
