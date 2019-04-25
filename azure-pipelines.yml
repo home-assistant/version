@@ -35,5 +35,8 @@ jobs:
   - script: pip install awscli
     displayName: 'Install aws cli'
   - script: |
+      export AWS_ACCESS_KEY_ID="$(aws.AccessKey)"
+      export AWS_SECRET_ACCESS_KEY="$(aws.SecretKey)"
+      
       aws s3 sync . s3://hassio-version --exclude "*" --include "*.json" --include "*.txt"
     displayName: 'Upload data to s3 hassio-version'
