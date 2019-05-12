@@ -18,17 +18,17 @@
     "orangepi-prime": "0.93.0b2"
   },
   "hassos": {
-    "ova": "3.0",
-    "rpi": "3.0",
-    "rpi0-w": "3.0",
-    "rpi2": "3.0",
-    "rpi3": "3.0",
-    "rpi3-64": "3.0",
-    "tinker": "3.0",
-    "odroid-c2": "3.0",
-    "odroid-xu4": "3.0",
-    "opi-prime": "3.0",
-    "intel-nuc": "3.0"
+    "ova": "3.1",
+    "rpi": "3.1",
+    "rpi0-w": "3.1",
+    "rpi2": "3.1",
+    "rpi3": "3.1",
+    "rpi3-64": "3.1",
+    "tinker": "3.1",
+    "odroid-c2": "3.1",
+    "odroid-xu4": "3.1",
+    "opi-prime": "3.1",
+    "intel-nuc": "3.1"
   },
   "hassos-cli": "9"
 }
