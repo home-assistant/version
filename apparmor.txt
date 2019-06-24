@@ -13,6 +13,8 @@ profile hassio-supervisor flags=(attach_disconnected,mediate_deleted) {
   capability dac_override,
 
   /bin/busybox ix,
+  /bin/udevadm Ux,
+  /sbin/udevd Ux,
   /usr/local/bin/python{,3,3.[0-9]} ix,
   /usr/bin/git cx,
   /usr/bin/socat cx,
@@ -26,16 +28,11 @@ profile hassio-supervisor flags=(attach_disconnected,mediate_deleted) {
   /** r,
   /tmp/** rw,
   /data/** rw,
+  /dev/tty rw,
   /{,var/}run/docker.sock rw,
 
   /usr/local/lib/python3.[0-9]/** mr,
-  /usr/local/lib/python3.[0-9]/__pycache__/** mrw,
-  /usr/local/lib/python3.[0-9]/**/__pycache__/** mrw,
   /usr/local/lib/libpython* mr,
-
-  # Old
-  /usr/bin/python{,3,3.[0-9]} ix,
-  /usr/lib/python{,3,3.[0-9]}/** mr,
 
   profile /usr/bin/socat flags=(attach_disconnected,mediate_deleted) {
     #include <abstractions/base>
