@@ -40,4 +40,5 @@ jobs:
       export AWS_SECRET_ACCESS_KEY="$(aws.SecretKey)"
 
       aws s3 sync . s3://hassio-version --exclude "*" --include "*.json" --include "*.txt"
+      aws s3 sync . s3://version.home-assistant.io --exclude "*" --include "*.json" --include "*.txt"
     displayName: 'Upload data to s3 hassio-version'
