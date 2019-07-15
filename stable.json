@@ -30,5 +30,5 @@
     "opi-prime": "2.12",
     "intel-nuc": "2.12"
   },
-  "hassos-cli": "9"
+  "hassos-cli": "11"
 }
