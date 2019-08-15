@@ -1,6 +1,6 @@
 {
   "channel": "beta",
-  "supervisor": "176",
+  "supervisor": "177",
   "homeassistant": {
     "default": "0.97.2",
     "qemux86": "0.97.2",
@@ -34,6 +34,6 @@
     "opi-prime": "2.12",
     "intel-nuc": "2.12"
   },
-  "hassos-cli": "12",
+  "hassos-cli": "13",
   "dns": "1"
 }
