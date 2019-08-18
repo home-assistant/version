@@ -34,6 +34,6 @@
     "opi-prime": "3.2",
     "intel-nuc": "3.2"
   },
-  "hassos-cli": "13",
+  "hassos-cli": "14",
   "dns": "1"
 }
