@@ -1,6 +1,6 @@
 {
   "channel": "stable",
-  "supervisor": "185",
+  "supervisor": "187",
   "homeassistant": {
     "default": "0.98.5",
     "qemux86": "0.98.5",
@@ -26,8 +26,8 @@
     "rpi2": "2.12",
     "rpi3": "2.12",
     "rpi3-64": "2.12",
-    "rpi4": "3.4",
-    "rpi4-64": "3.4",
+    "rpi4": "3.5",
+    "rpi4-64": "3.5",
     "tinker": "2.12",
     "odroid-c2": "2.12",
     "odroid-xu4": "2.12",
