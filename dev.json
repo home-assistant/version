@@ -16,8 +16,8 @@
     "raspberrypi4-64": "0.104.0.dev20200106",
     "tinker": "0.104.0.dev20200106",
     "odroid-c2": "0.104.0.dev20200106",
-    "odroid-xu": "0.104.0.dev20200106",
-    "orangepi-prime": "0.104.0.dev20200106"
+    "odroid-n2": "0.104.0.dev20200106",
+    "odroid-xu": "0.104.0.dev20200106"
   },
   "hassos": {
     "ova": "3.7",
@@ -30,6 +30,7 @@
     "rpi4-64": "3.7",
     "tinker": "3.7",
     "odroid-c2": "3.7",
+    "odroid-n2": "4.0",
     "odroid-xu4": "3.7",
     "opi-prime": "3.7",
     "intel-nuc": "3.7"
