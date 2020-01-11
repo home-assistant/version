@@ -32,7 +32,6 @@
     "odroid-c2": "3.7",
     "odroid-n2": "4.0",
     "odroid-xu4": "3.7",
-    "opi-prime": "3.7",
     "intel-nuc": "3.7"
   },
   "hassos-cli": "15",
