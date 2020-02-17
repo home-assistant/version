@@ -1,6 +1,6 @@
 {
   "channel": "beta",
-  "supervisor": "200",
+  "supervisor": "201",
   "homeassistant": {
     "default": "0.105.4",
     "qemux86": "0.105.4",
@@ -20,20 +20,20 @@
     "odroid-xu": "0.105.4"
   },
   "hassos": {
-    "ova": "3.9",
-    "rpi": "3.9",
-    "rpi0-w": "3.9",
-    "rpi2": "3.9",
-    "rpi3": "3.9",
-    "rpi3-64": "3.9",
-    "rpi4": "3.9",
-    "rpi4-64": "3.9",
-    "tinker": "3.9",
-    "odroid-c2": "3.9",
+    "ova": "3.10",
+    "rpi": "3.10",
+    "rpi0-w": "3.10",
+    "rpi2": "3.10",
+    "rpi3": "3.10",
+    "rpi3-64": "3.10",
+    "rpi4": "3.10",
+    "rpi4-64": "3.10",
+    "tinker": "3.10",
+    "odroid-c2": "3.10",
     "odroid-n2": "4.2",
-    "odroid-xu4": "3.9",
-    "intel-nuc": "3.9"
+    "odroid-xu4": "3.10",
+    "intel-nuc": "3.10"
   },
-  "hassos-cli": "18",
+  "hassos-cli": "19",
   "dns": "1"
 }
