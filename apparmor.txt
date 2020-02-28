@@ -7,19 +7,26 @@ profile hassio-supervisor flags=(attach_disconnected,mediate_deleted) {
   network,
   deny network raw,
 
-  signal (send) set=(kill,term,int),
+  signal (send) set=(kill,term,int,hup,cont),
 
   capability net_bind_service,
   capability dac_read_search,
   capability dac_override,
 
-  /bin/busybox ix,
+  /bin/** ix,
+  /usr/bin/** ix,
   /bin/udevadm Ux,
   /sbin/udevd Ux,
-  /usr/local/bin/python{,3,3.[0-9]} ix,
+  /usr/local/bin/python* ix,
   /usr/bin/git cx,
   /usr/bin/socat cx,
   /usr/bin/gdbus cx,
+  /usr/lib/bashio/** ix,
+  /etc/s6/** ix,
+  /run/s6/** ix,
+  /etc/services.d/** rwix,
+  /etc/cont-init.d/** rwix,
+  /etc/cont-finish.d/** rwix,
 
   deny /proc/** wl,
   deny /root/** wl,
@@ -29,12 +36,11 @@ profile hassio-supervisor flags=(attach_disconnected,mediate_deleted) {
   /** r,
   /tmp/** rw,
   /data/** rw,
+  /run/** rw,
   /dev/tty rw,
   /{,var/}run/docker.sock rw,
-  /etc/resolv.conf rw,
 
-  /usr/local/lib/python3.[0-9]/** mr,
-  /usr/local/lib/libpython* mr,
+  /usr/local/lib/** mr,
 
   profile /usr/bin/socat flags=(attach_disconnected,mediate_deleted) {
     #include <abstractions/base>
