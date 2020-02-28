@@ -14,7 +14,7 @@ profile hassio-supervisor flags=(attach_disconnected,mediate_deleted) {
   capability dac_override,
 
   /bin/** ix,
-  /user/bin/** ix,
+  /usr/bin/** ix,
   /bin/udevadm Ux,
   /sbin/udevd Ux,
   /usr/local/bin/python* ix,
