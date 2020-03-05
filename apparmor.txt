@@ -38,7 +38,7 @@ profile hassio-supervisor flags=(attach_disconnected,mediate_deleted) {
   /data/** rw,
   /run/** rwk,
   /dev/tty rw,
-  /{,var/}run/docker.sock rw,
+  /run/docker.sock rw,
 
   /usr/local/lib/** mr,
 
@@ -69,7 +69,7 @@ profile hassio-supervisor flags=(attach_disconnected,mediate_deleted) {
     /lib/* mr,
     /** r,
 
-    /{,var/}run/dbus/system_bus_socket rw,
+    /run/dbus/system_bus_socket rw,
   }
 
   profile /usr/bin/git flags=(attach_disconnected,mediate_deleted) {
