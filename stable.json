@@ -35,7 +35,7 @@
     "intel-nuc": "3.12"
   },
   "hassos-cli": "19",
-  "cli": "23",
+  "cli": "24",
   "dns": "3",
   "audio": "9"
 }
