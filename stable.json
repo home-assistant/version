@@ -38,7 +38,7 @@
   "cli": "24",
   "dns": "3",
   "audio": "14",
-  "images": {
+  "image": {
     "core": "homeassistant/{machine}-homeassistant",
     "supervisor": "homeassistant/{arch}-hassio-supervisor",
     "cli": "homeassistant/{arch}-hassio-cli",
