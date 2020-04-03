@@ -37,5 +37,12 @@
   "hassos-cli": "19",
   "cli": "24",
   "dns": "3",
-  "audio": "14"
+  "audio": "14",
+  "images": {
+    "core": "homeassistant/{machine}-homeassistant",
+    "supervisor": "homeassistant/{arch}-hassio-supervisor",
+    "cli": "homeassistant/{arch}-hassio-cli",
+    "audio": "homeassistant/{arch}-hassio-audio",
+    "dns": "homeassistant/{arch}-hassio-dns"
+  }
 }
