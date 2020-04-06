@@ -38,7 +38,7 @@
   "cli": "24",
   "dns": "3",
   "audio": "14",
-  "multicast": "1",
+  "multicast": "2",
   "image": {
     "core": "homeassistant/{machine}-homeassistant",
     "supervisor": "homeassistant/{arch}-hassio-supervisor",
