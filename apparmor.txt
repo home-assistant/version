@@ -58,6 +58,7 @@ profile hassio-supervisor flags=(attach_disconnected,mediate_deleted) {
     /lib/* mr,
     /usr/bin/socat mr,
     /usr/local/lib/libjemalloc* mr,
+    /sys/kernel/mm/** r,
   }
 
   profile /usr/bin/gdbus flags=(attach_disconnected,mediate_deleted) {
