@@ -1,6 +1,6 @@
 {
   "channel": "beta",
-  "supervisor": "214",
+  "supervisor": "215",
   "homeassistant": {
     "default": "0.108.0b5",
     "qemux86": "0.108.0b5",
@@ -35,7 +35,7 @@
     "intel-nuc": "3.12"
   },
   "hassos-cli": "19",
-  "cli": "24",
+  "cli": "25",
   "dns": "6",
   "audio": "14",
   "multicast": "2",
