@@ -36,7 +36,7 @@
   },
   "hassos-cli": "19",
   "cli": "24",
-  "dns": "3",
+  "dns": "9",
   "audio": "14",
   "multicast": "2",
   "image": {
