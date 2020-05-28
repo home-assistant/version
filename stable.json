@@ -20,7 +20,7 @@
     "odroid-xu": "0.110.3"
   },
   "hassos": {
-    "ova": "3.13",
+    "ova": "4.8",
     "rpi": "3.13",
     "rpi0-w": "3.13",
     "rpi2": "3.13",
@@ -29,9 +29,9 @@
     "rpi4": "3.13",
     "rpi4-64": "3.13",
     "tinker": "3.13",
-    "odroid-c2": "3.13",
+    "odroid-c2": "4.8",
     "odroid-n2": "4.8",
-    "odroid-xu4": "3.13",
+    "odroid-xu4": "4.8",
     "intel-nuc": "3.13"
   },
   "hassos-cli": "19",
