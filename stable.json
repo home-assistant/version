@@ -32,7 +32,7 @@
     "odroid-c2": "4.8",
     "odroid-n2": "4.8",
     "odroid-xu4": "4.8",
-    "intel-nuc": "3.13"
+    "intel-nuc": "4.8"
   },
   "hassos-cli": "19",
   "cli": "25",
