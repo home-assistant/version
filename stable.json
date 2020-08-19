@@ -1,6 +1,6 @@
 {
   "channel": "stable",
-  "supervisor": "234",
+  "supervisor": "235",
   "homeassistant": {
     "default": "0.114.2",
     "qemux86": "0.114.2",
