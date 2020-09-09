@@ -39,12 +39,14 @@
   "dns": "9",
   "audio": "17",
   "multicast": "3",
+  "observer": "1",
   "image": {
     "core": "homeassistant/{machine}-homeassistant",
     "supervisor": "homeassistant/{arch}-hassio-supervisor",
     "cli": "homeassistant/{arch}-hassio-cli",
     "audio": "homeassistant/{arch}-hassio-audio",
     "dns": "homeassistant/{arch}-hassio-dns",
+    "observer": "homeassistant/{arch}-hassio-observer",
     "multicast": "homeassistant/{arch}-hassio-multicast"
   }
 }
