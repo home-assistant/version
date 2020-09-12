@@ -34,7 +34,6 @@
     "odroid-xu4": "5.2",
     "intel-nuc": "5.2"
   },
-  "hassos-cli": "19",
   "cli": "26",
   "dns": "9",
   "audio": "17",
