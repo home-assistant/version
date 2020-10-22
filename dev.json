@@ -35,7 +35,7 @@
     "intel-nuc": "5.3"
   },
   "cli": "2020.10.dev211",
-  "dns": "9",
+  "dns": "2020.10.dev224",
   "audio": "2020.10.dev213",
   "multicast": "2020.10.dev211",
   "observer": "2020.10.dev212",
