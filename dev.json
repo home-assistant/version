@@ -38,7 +38,7 @@
   "dns": "2020.10.dev224",
   "audio": "2020.10.dev213",
   "multicast": "2020.10.dev211",
-  "observer": "2020.10.dev212",
+  "observer": "2020.10.dev2405",
   "image": {
     "core": "homeassistant/{machine}-homeassistant",
     "supervisor": "homeassistant/{arch}-hassio-supervisor",
