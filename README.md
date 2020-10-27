@@ -1,3 +1,3 @@
-# hassio-version
+# Version
 
-Hass.io system versions data
+Home Assistant versions data
