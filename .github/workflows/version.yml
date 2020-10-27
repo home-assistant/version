@@ -66,8 +66,7 @@ jobs:
     - name: Flush CloudFlare cache
       run: |
         curl --silent --show-error --fail -X POST \
-          "https://api.cloudflare.com/client/v4/zones/${{ secrets.CF_ZONE }}/purge_cache" \
-          -H "X-Auth-Email: ${{ secrets.CF_EMAIL }}" \
-          -H "X-Auth-Key: ${{ secrets.CF_AUTHKEY }}" \
+          "https://api.cloudflare.com/client/v4/zones/${{ secrets.CF_ZONE }}/purge_cache" \
+          -H "Authorization: Bearer ${{ secrets.CF_TOKEN }}"
           -H "Content-Type: application/json" \
           --data '{"files": ${{ steps.flush.outputs.files }}}'
