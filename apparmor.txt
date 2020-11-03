@@ -36,6 +36,7 @@ profile hassio-supervisor flags=(attach_disconnected,mediate_deleted) {
   /** r,
   /tmp/** rw,
   /data/** rw,
+  /os/** rw,
   /run/** rwk,
   /dev/tty rw,
   /etc/resolv.conf rw,
