@@ -16,6 +16,7 @@
     "raspberrypi4-64": "0.118.0.dev20201103",
     "tinker": "0.118.0.dev20201103",
     "odroid-c2": "0.118.0.dev20201103",
+    "odroid-c4": "0.118.0.dev20201103",
     "odroid-n2": "0.118.0.dev20201103",
     "odroid-xu": "0.118.0.dev20201103"
   },
@@ -30,6 +31,7 @@
     "rpi4-64": "5.3",
     "tinker": "5.4",
     "odroid-c2": "5.4",
+    "odroid-c4": "5.5",
     "odroid-n2": "5.4",
     "odroid-xu4": "5.4",
     "intel-nuc": "5.4"
