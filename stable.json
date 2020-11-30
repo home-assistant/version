@@ -1,6 +1,6 @@
 {
   "channel": "stable",
-  "supervisor": "2020.11.0",
+  "supervisor": "2020.11.6",
   "homeassistant": {
     "default": "0.118.4",
     "qemux86": "0.118.4",
@@ -36,7 +36,7 @@
     "odroid-xu4": "4.17",
     "intel-nuc": "4.17"
   },
-  "cli": "2020.10.1",
+  "cli": "2020.11.1",
   "dns": "2020.11.0",
   "audio": "17",
   "multicast": "3",
