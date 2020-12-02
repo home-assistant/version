@@ -1,6 +1,6 @@
 {
   "channel": "stable",
-  "supervisor": "2020.11.0",
+  "supervisor": "2020.12.1",
   "homeassistant": {
     "default": "0.118.4",
     "qemux86": "0.118.4",
@@ -37,7 +37,7 @@
     "intel-nuc": "4.17"
   },
   "ota": "https://github.com/home-assistant/operating-system/releases/download/{version}/hassos_{board}-{version}.raucb",
-  "cli": "2020.10.1",
+  "cli": "2020.11.1",
   "dns": "2020.11.0",
   "audio": "17",
   "multicast": "3",
