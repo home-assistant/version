@@ -36,6 +36,7 @@
     "odroid-xu4": "5.6",
     "intel-nuc": "5.6"
   },
+  "ota": "https://github.com/home-assistant/operating-system/releases/download/{version}/hassos_{board}-{version}.raucb",
   "cli": "2020.11.dev3001",
   "dns": "2020.11.dev0201",
   "audio": "2020.10.dev213",
@@ -48,7 +49,6 @@
     "audio": "homeassistant/{arch}-hassio-audio",
     "dns": "homeassistant/{arch}-hassio-dns",
     "observer": "homeassistant/{arch}-hassio-observer",
-    "multicast": "homeassistant/{arch}-hassio-multicast",
-    "os": "https://github.com/home-assistant/operating-system/releases/download/{version}/hassos_{board}-{version}.raucb"
+    "multicast": "homeassistant/{arch}-hassio-multicast"
   }
 }
