@@ -48,6 +48,7 @@
     "audio": "homeassistant/{arch}-hassio-audio",
     "dns": "homeassistant/{arch}-hassio-dns",
     "observer": "homeassistant/{arch}-hassio-observer",
-    "multicast": "homeassistant/{arch}-hassio-multicast"
+    "multicast": "homeassistant/{arch}-hassio-multicast",
+    "os": "https://github.com/home-assistant/operating-system/releases/download/{version}/hassos_{board}-{version}.raucb"
   }
 }
