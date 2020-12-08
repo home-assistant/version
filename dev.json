@@ -36,7 +36,7 @@
     "odroid-xu4": "5.6",
     "intel-nuc": "5.6"
   },
-  "ota": "https://github.com/home-assistant/operating-system/releases/download/{version}/hassos_{board}-{version}.raucb",
+  "ota": "https://os-builds.home-assistant.io/dev20201208/hassos_{board}-{version}.dev20201208.raucb",
   "cli": "2020.11.dev3001",
   "dns": "2020.11.dev0201",
   "audio": "2020.10.dev213",
