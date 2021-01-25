@@ -38,7 +38,7 @@
   },
   "ota": "https://github.com/home-assistant/operating-system/releases/download/{version}/hassos_{board}-{version}.raucb",
   "cli": "2020.11.1",
-  "dns": "2020.12.0",
+  "dns": "2021.01.0",
   "audio": "17",
   "multicast": "3",
   "observer": "2020.10.1",
