@@ -7,6 +7,7 @@
     "qemux86-64": "2021.3.4",
     "qemuarm": "2021.3.4",
     "qemuarm-64": "2021.3.4",
+    "generic-x86-64": "2021.3.4",
     "intel-nuc": "2021.3.4",
     "raspberrypi": "2021.3.4",
     "raspberrypi2": "2021.3.4",
@@ -34,6 +35,7 @@
     "odroid-c4": "5.12",
     "odroid-n2": "5.12",
     "odroid-xu4": "5.12",
+    "generic-x86-64": "6.0.dev20210311",
     "intel-nuc": "5.12"
   },
   "ota": "https://github.com/home-assistant/operating-system/releases/download/{version}/hassos_{board}-{version}.raucb",
