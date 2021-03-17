@@ -1,0 +1,28 @@
+name: Sign files
+
+on:
+  push:
+    branches: ["main"]
+  
+jobs:
+  sign:
+    name: Sign ${{ matrix.path }}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        path:
+          - stable.json
+          - beta.json
+          - dev.json
+          - apparmor.txt
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v2
+
+      - name: Sign
+        uses: home-assistant/actions/helpers/codenotary@master
+        with:
+          source: ${{ matrix.path }}
+          user: ${{ secrets.VCN_USER }}
+          password: ${{ secrets.VCN_PASSWORD }}
+          organisation: ${{ secrets.VCN_ORG }}
