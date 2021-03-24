@@ -46,7 +46,7 @@
   "observer": "2020.10.dev2405",
   "image": {
     "core": "homeassistant/{machine}-homeassistant",
-    "supervisor": "homeassistant/{arch}-hassio-supervisor",
+    "supervisor": "ghcr.io/home-assistant/{arch}-hassio-supervisor",
     "cli": "homeassistant/{arch}-hassio-cli",
     "audio": "homeassistant/{arch}-hassio-audio",
     "dns": "homeassistant/{arch}-hassio-dns",
