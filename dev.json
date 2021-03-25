@@ -39,7 +39,7 @@
     "intel-nuc": "5.12"
   },
   "ota": "https://os-builds.home-assistant.io/{version}/hassos_{board}-{version}.raucb",
-  "cli": "2021.03.dev1501",
+  "cli": "2021.03.dev2502",
   "dns": "2021.03.dev2502",
   "audio": "2021.02.dev1503",
   "multicast": "2021.03.dev2502",
