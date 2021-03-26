@@ -41,7 +41,7 @@
   "ota": "https://os-builds.home-assistant.io/{version}/hassos_{board}-{version}.raucb",
   "cli": "2021.03.dev2502",
   "dns": "2021.03.dev2502",
-  "audio": "2021.03.dev2502",
+  "audio": "2021.03.dev2601",
   "multicast": "2021.03.dev2502",
   "observer": "2021.03.dev2502",
   "image": {
