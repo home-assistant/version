@@ -11,7 +11,6 @@ on:
 
 env:
   PYTHON_VERSION: "3.7"
-  BRANCH_CONDITION: "refs/heads/master"
 
 jobs:
   lint:
@@ -23,11 +22,34 @@ jobs:
  
     - name: Lint with JQ
       uses: home-assistant/actions/helpers/jq@master
+  
+  signing:
+    name: Sign ${{ matrix.path }}
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        path:
+          - stable.json
+          - beta.json
+          - dev.json
+          - apparmor.txt
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v2
+
+      - name: Sign
+        uses: home-assistant/actions/helpers/codenotary@master
+        with:
+          source: ${{ matrix.path }}
+          user: ${{ secrets.VCN_USER }}
+          password: ${{ secrets.VCN_PASSWORD }}
+          organisation: ${{ secrets.VCN_ORG }}
 
   upload:
     name: Upload
-    needs: lint
-    if: github.ref == 'refs/heads/master'
+    needs: ["lint", "signing"]
+    if: github.event_name == 'push'
     runs-on: ubuntu-latest
     steps:
     - name: Checkout the repository
