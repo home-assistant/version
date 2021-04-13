@@ -42,7 +42,7 @@
   "cli": "2021.04.dev1301",
   "dns": "2021.03.dev2502",
   "audio": "2021.03.dev2601",
-  "multicast": "2021.04.dev0102",
+  "multicast": "2021.04.dev1301",
   "observer": "2021.03.dev2502",
   "image": {
     "core": "homeassistant/{machine}-homeassistant",
