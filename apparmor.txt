@@ -20,7 +20,6 @@ profile hassio-supervisor flags=(attach_disconnected,mediate_deleted) {
   /sbin/udevd Ux,
   /usr/local/bin/python* ix,
   /usr/bin/git cx,
-  /usr/bin/socat cx,
   /usr/bin/gdbus cx,
   /usr/lib/bashio/** ix,
   /etc/s6/** ix,
@@ -45,24 +44,6 @@ profile hassio-supervisor flags=(attach_disconnected,mediate_deleted) {
 
   /usr/local/lib/** mr,
 
-  profile /usr/bin/socat flags=(attach_disconnected,mediate_deleted) {
-    #include <abstractions/base>
-
-    network inet udp,
-    network inet tcp,
-
-    deny network raw,
-    deny network packet,
-
-    signal (receive) set=(kill,term),
-    capability net_bind_service,
-
-    /lib/* mr,
-    /usr/bin/socat mr,
-    /usr/local/lib/libjemalloc* mr,
-    /sys/kernel/mm/** r,
-  }
-
   profile /usr/bin/gdbus flags=(attach_disconnected,mediate_deleted) {
     #include <abstractions/base>
     #include <abstractions/dbus>
@@ -75,7 +56,7 @@ profile hassio-supervisor flags=(attach_disconnected,mediate_deleted) {
     /** r,
     /lib/* mr,
     /usr/bin/gdbus mr,
-    /usr/local/lib/libjemalloc* mr,
+    /usr/local/lib/** mr,
 
     /run/dbus/system_bus_socket rw,
   }
@@ -98,7 +79,7 @@ profile hassio-supervisor flags=(attach_disconnected,mediate_deleted) {
     /** r,
     /lib/* mr,
     /data/addons/** lrw,
-    /usr/local/lib/libjemalloc* mr,
+    /usr/local/lib/** mr,
 
     capability dac_override,
   }
