@@ -86,6 +86,10 @@ jobs:
         done
         echo "::set-output name=files::[$(echo ${files[@]} | rev | cut -c 2- | rev)]"
 
+    # Give S3 time to propagate the new object before flushing CF cache.
+    - name: Sleep for 10 min
+      run: sleep 600
+
     - name: Flush CloudFlare cache
       run: |
         curl --silent --show-error --fail -X POST \
