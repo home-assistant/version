@@ -1,0 +1,26 @@
+{
+    "os_list": [
+        {
+            "name": "Home Assistant OS 5.13 (Pi 4 - 64-bit)",
+            "description": "Distributon optimized to run Home Assistant Core and Add-Ons.",
+            "url": "https://github.com/home-assistant/operating-system/releases/download/5.13/hassos_rpi4-64-5.13.img.xz",
+            "icon": "https://raw.githubusercontent.com/home-assistant/version/master/rpi-imager-haos.png",
+            "extract_size": 2147483648,
+            "extract_sha256": "c06c179122647e4f95d2ba4d2be858aa6bbb804aaf38708688e9997e85d429be",
+            "image_download_size": 259879024,
+            "release_date": "2021-04-01",
+            "image_download_sha256": "811df3f5ca79aeff96619515731c434f9446d6384f6f620202dd9a044c174c0b"
+        },
+        {
+            "name": "Home Assistant OS 5.13 (Pi 3 - 32-bit)",
+            "description": "Distributon optimized to run Home Assistant Core and Add-Ons.",
+            "url": "https://github.com/home-assistant/operating-system/releases/download/5.13/hassos_rpi3-5.13.img.xz",
+            "icon": "https://raw.githubusercontent.com/home-assistant/version/master/rpi-imager-haos.png",
+            "extract_size": 2147483648,
+            "extract_sha256": "1911220032792261f6e63a96e500c76dc85b775ac922b51a6c810666876f22b8",
+            "image_download_size": 257702916,
+            "release_date": "2021-04-01",
+            "image_download_sha256": "a41e9429b5833e7776b180ec24cf7a90fce429480c2e3b8c574bcc62216c243e"
+        }
+    ]
+}
