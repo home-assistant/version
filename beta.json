@@ -38,7 +38,7 @@
     "generic-x86-64": "6.0.rc1",
     "intel-nuc": "6.0.rc1"
   },
-  "ota": "https://github.com/home-assistant/operating-system/releases/download/{version}/hassos_{board}-{version}.raucb",
+  "ota": "https://github.com/home-assistant/operating-system/releases/download/{version}/haos_{board}-{version}.raucb",
   "cli": "2021.04.1",
   "dns": "2021.04.0",
   "audio": "2021.04.0",
