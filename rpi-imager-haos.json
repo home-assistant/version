@@ -13,7 +13,7 @@
         },
         {
             "name": "Home Assistant OS 5.13 (Pi 3 - 32-bit)",
-            "description": "Distributon optimized to run Home Assistant Core and Add-Ons.",
+            "description": "Open-source home automation platform with a focus on local control and privacy.",
             "url": "https://github.com/home-assistant/operating-system/releases/download/5.13/hassos_rpi3-5.13.img.xz",
             "icon": "https://version.home-assistant.io/rpi-imager-haos.png",
             "extract_size": 2147483648,
