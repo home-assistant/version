@@ -73,7 +73,7 @@ jobs:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       run: |
-        aws s3 sync . s3://version.home-assistant.io --exclude "*" --include "*.json" --include "*.txt"
+        aws s3 sync . s3://version.home-assistant.io --exclude "*" --include "*.json" --include "*.txt" --include "*/rpi-imager-haos.png"
 
     - name: Gather files for cache flush
       id: flush
