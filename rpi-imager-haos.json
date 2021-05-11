@@ -2,7 +2,7 @@
     "os_list": [
         {
             "name": "Home Assistant OS 5.13 (RPi 4/400)",
-            "description": "Open-source home automation with a focus on local control and privacy.",
+            "description": "Open source home automation that puts local control and privacy first.",
             "url": "https://github.com/home-assistant/operating-system/releases/download/5.13/hassos_rpi4-64-5.13.img.xz",
             "icon": "https://version.home-assistant.io/rpi-imager-haos.png",
             "extract_size": 2147483648,
@@ -13,7 +13,7 @@
         },
         {
             "name": "Home Assistant OS 5.13 (RPi 3)",
-            "description": "Open-source home automation with a focus on local control and privacy.",
+            "description": "Open source home automation that puts local control and privacy first.",
             "url": "https://github.com/home-assistant/operating-system/releases/download/5.13/hassos_rpi3-64-5.13.img.xz",
             "icon": "https://version.home-assistant.io/rpi-imager-haos.png",
             "extract_size": 2147483648,
