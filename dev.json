@@ -39,7 +39,7 @@
     "intel-nuc": "6.0.dev20210504"
   },
   "ota": "https://os-builds.home-assistant.io/{version}/haos_{board}-{version}.raucb",
-  "cli": "2021.05.dev2701",
+  "cli": "2021.05.dev2702",
   "dns": "2021.04.dev2703",
   "audio": "2021.04.dev2803",
   "multicast": "2021.04.dev1301",
