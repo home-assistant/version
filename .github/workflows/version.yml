@@ -1,6 +1,11 @@
 name: Version
 
 on:
+  workflow_dispatch:
+    inputs:
+      files:
+        description: 'File(s) to run action against'
+        required: true
   pull_request:
     branches: ["master"]
   push:
@@ -8,6 +13,7 @@ on:
     paths:
     - apparmor.txt
     - '*.json'
+    - rpi-imager-haos.png
 
 env:
   PYTHON_VERSION: "3.7"
@@ -26,7 +32,7 @@ jobs:
   signing:
     name: Sign ${{ matrix.path }}
     needs: ["lint"]
-    if: github.event_name == 'push'
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -50,7 +56,7 @@ jobs:
   upload:
     name: Upload
     needs: ["signing"]
-    if: github.event_name == 'push'
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     steps:
     - name: Checkout the repository
@@ -61,9 +67,19 @@ jobs:
       with:
         python-version: ${{ env.PYTHON_VERSION }}
 
+    - name: Get changed files for push
+      if: github.event_name == 'push'
+      id: changed_files_push
+      uses: jitterbit/get-changed-files@v1
+
     - name: Get changed files
       id: changed_files
-      uses: jitterbit/get-changed-files@v1
+      run: |
+        if [[ ${{ github.event_name }} == "push" ]]; then
+          echo "::set-output name=files::${{ steps.changed_files_push.outputs.all }}"
+        else
+          echo "::set-output name=files::${{ github.event.inputs.files }}"
+        fi
 
     - name: Install AWS CLI
       run: pip install awscli
@@ -73,7 +89,7 @@ jobs:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       run: |
-        for file in ${{ steps.changed_files.outputs.all }}; do
+        for file in ${{ steps.changed_files.outputs.files }}; do
           if [[ "$file" =~ \.txt|\.json|\.png ]]; then
             aws s3 sync . s3://version.home-assistant.io --exclude "*" --include "$file"
           fi
@@ -83,7 +99,7 @@ jobs:
       id: flush
       run: |
         declare -a files
-        for file in ${{ steps.changed_files.outputs.all }}; do
+        for file in ${{ steps.changed_files.outputs.files }}; do
           if [[ "$file" =~ \.txt|\.json ]]; then
             files+=("\"https:\/\/version.home-assistant.io\/$file\", ")
           fi
