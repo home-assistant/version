@@ -74,7 +74,7 @@ jobs:
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       run: |
         for file in ${{ steps.changed_files.outputs.all }}; do
-          if [[ "$file" =~ .txt|.json|.png ]]; then
+          if [[ "$file" =~ \.txt|\.json|\.png ]]; then
             aws s3 sync . s3://version.home-assistant.io --exclude "*" --include "$file"
           fi
         done
@@ -84,7 +84,7 @@ jobs:
       run: |
         declare -a files
         for file in ${{ steps.changed_files.outputs.all }}; do
-          if [[ "$file" =~ .txt|.json ]]; then
+          if [[ "$file" =~ \.txt|\.json ]]; then
             files+=("\"https:\/\/version.home-assistant.io\/$file\", ")
           fi
         done
