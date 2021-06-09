@@ -45,7 +45,7 @@
   "multicast": "2021.04.0",
   "observer": "2020.10.1",
   "image": {
-    "core": "homeassistant/{machine}-homeassistant",
+    "core": "ghcr.io/home-assistant/{machine}-homeassistant",
     "supervisor": "ghcr.io/home-assistant/{arch}-hassio-supervisor",
     "cli": "ghcr.io/home-assistant/{arch}-hassio-cli",
     "audio": "ghcr.io/home-assistant/{arch}-hassio-audio",
