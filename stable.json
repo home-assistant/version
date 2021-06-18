@@ -45,12 +45,12 @@
   "multicast": "2021.04.0",
   "observer": "2021.06.0",
   "image": {
-    "core": "ghcr.io/home-assistant/{machine}-homeassistant",
+    "core": "homeassistant/{machine}-homeassistant",
     "supervisor": "homeassistant/{arch}-hassio-supervisor",
-    "cli": "ghcr.io/home-assistant/{arch}-hassio-cli",
-    "audio": "ghcr.io/home-assistant/{arch}-hassio-audio",
-    "dns": "ghcr.io/home-assistant/{arch}-hassio-dns",
-    "observer": "ghcr.io/home-assistant/{arch}-hassio-observer",
-    "multicast": "ghcr.io/home-assistant/{arch}-hassio-multicast"
+    "cli": "homeassistant/{arch}-hassio-cli",
+    "audio": "homeassistant/{arch}-hassio-audio",
+    "dns": "homeassistant/{arch}-hassio-dns",
+    "observer": "homeassistant/{arch}-hassio-observer",
+    "multicast": "homeassistant/{arch}-hassio-multicast"
   }
 }
