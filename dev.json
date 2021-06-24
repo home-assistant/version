@@ -1,6 +1,6 @@
 {
   "channel": "dev",
-  "supervisor": "2021.06.dev2102",
+  "supervisor": "2021.06.dev2401",
   "homeassistant": {
     "default": "2021.7.0.dev20210624",
     "qemux86": "2021.7.0.dev20210624",
