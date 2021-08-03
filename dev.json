@@ -9,6 +9,7 @@
     "qemuarm-64": "2021.9.0.dev20210803",
     "generic-x86-64": "2021.9.0.dev20210803",
     "intel-nuc": "2021.9.0.dev20210803",
+    "khadas-vim3": "2021.9.0.dev20210803",
     "raspberrypi": "2021.9.0.dev20210803",
     "raspberrypi2": "2021.9.0.dev20210803",
     "raspberrypi3": "2021.9.0.dev20210803",
