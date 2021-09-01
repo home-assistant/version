@@ -40,9 +40,9 @@
     "intel-nuc": "6.2"
   },
   "ota": "https://github.com/home-assistant/operating-system/releases/download/{version}/{os_name}_{board}-{version}.raucb",
-  "cli": "2021.08.0",
+  "cli": "2021.08.1",
   "dns": "2021.06.0",
-  "audio": "2021.04.0",
+  "audio": "2021.07.0",
   "multicast": "2021.04.0",
   "observer": "2021.06.0",
   "image": {
