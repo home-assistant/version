@@ -44,7 +44,7 @@
   "dns": "2021.06.dev1501",
   "audio": "2021.07.dev1601",
   "multicast": "2021.04.dev1301",
-  "observer": "2021.09.dev2702",
+  "observer": "2021.09.dev2901",
   "image": {
     "core": "ghcr.io/home-assistant/{machine}-homeassistant",
     "supervisor": "ghcr.io/home-assistant/{arch}-hassio-supervisor",
