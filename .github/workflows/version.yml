@@ -49,6 +49,7 @@ jobs:
         uses: home-assistant/actions/helpers/codenotary@master
         with:
           source: ${{ matrix.path }}
+          token: ${{ secrets.CAS_TOKEN }}
           user: ${{ secrets.VCN_USER }}
           password: ${{ secrets.VCN_PASSWORD }}
           organisation: ${{ secrets.VCN_ORG }}
