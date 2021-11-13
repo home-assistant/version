@@ -37,7 +37,8 @@
     "odroid-n2": "6.6",
     "odroid-xu4": "6.6",
     "generic-x86-64": "6.6",
-    "intel-nuc": "6.6"
+    "intel-nuc": "6.6",
+    "khadas-vim3": "7.0.rc1"
   },
   "ota": "https://github.com/home-assistant/operating-system/releases/download/{version}/{os_name}_{board}-{version}.raucb",
   "cli": "2021.09.0",
