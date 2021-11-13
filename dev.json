@@ -37,7 +37,8 @@
     "odroid-n2": "7.0.dev20211111",
     "odroid-xu4": "7.0.dev20211111",
     "generic-x86-64": "7.0.dev20211111",
-    "intel-nuc": "7.0.dev20211111"
+    "intel-nuc": "7.0.dev20211111",
+    "khadas-vim3": "7.0.dev20211111"
   },
   "ota": "https://os-builds.home-assistant.io/{version}/{os_name}_{board}-{version}.raucb",
   "cli": "2021.09.dev2203",
