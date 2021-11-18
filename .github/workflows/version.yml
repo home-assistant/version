@@ -52,6 +52,7 @@ jobs:
           user: ${{ secrets.VCN_USER }}
           password: ${{ secrets.VCN_PASSWORD }}
           organisation: ${{ secrets.VCN_ORG }}
+          token: ${{ secrets.CAS_TOKEN }}
 
   upload:
     name: Upload
