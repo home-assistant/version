@@ -43,7 +43,7 @@
   "ota": "https://os-builds.home-assistant.io/{version}/{os_name}_{board}-{version}.raucb",
   "cli": "2021.11.dev2901",
   "dns": "2021.11.dev2901",
-  "audio": "2021.07.dev1601",
+  "audio": "2021.11.dev2901",
   "multicast": "2021.11.dev2901",
   "observer": "2021.11.dev2902",
   "image": {
