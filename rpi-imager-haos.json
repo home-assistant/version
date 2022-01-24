@@ -1,28 +1,3 @@
 {
-  "os_list": [
-    {
-      "name": "Home Assistant OS 7.0 (RPi 4/400)",
-      "description": "Open source home automation that puts local control and privacy first.",
-      "url": "https://github.com/home-assistant/operating-system/releases/download/7.0/haos_rpi4-64-7.0.img.xz",
-      "icon": "https://version.home-assistant.io/rpi-imager-haos.png",
-      "extract_size": 2147483648,
-      "extract_sha256": "f131a68a0687d7c386bd9c3bd6ea5078e3ad51797452e2d806d5ca2c9c7f114b",
-      "release_date": "2021-12-03",
-      "image_download_size": 265281584,
-      "image_download_sha256": "a8031f6ee90c0c0b61deab9356626f84d56eb87c50f82985ac011dba33fc87f8",
-      "website": "https://www.home-assistant.io"
-    },
-    {
-      "name": "Home Assistant OS 7.0 (RPi 3)",
-      "description": "Open source home automation that puts local control and privacy first.",
-      "url": "https://github.com/home-assistant/operating-system/releases/download/7.0/haos_rpi3-64-7.0.img.xz",
-      "icon": "https://version.home-assistant.io/rpi-imager-haos.png",
-      "extract_size": 2147483648,
-      "extract_sha256": "a736151635e5d99435537ef04eea55dd56044be013bf31498fe0a191240db30d",
-      "release_date": "2021-12-03",
-      "image_download_size": 262241644,
-      "image_download_sha256": "626c982d04f5cd06427237a3674d43b413af990d74616867365cc68cb7b41c2f",
-      "website": "https://www.home-assistant.io"
-    }
-  ]
+  "os_list": []
 }
