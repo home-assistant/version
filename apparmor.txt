@@ -34,7 +34,7 @@ profile hassio-supervisor flags=(attach_disconnected,mediate_deleted) {
 
   / r,
   /** r,
-  /tmp/** rw,
+  /tmp/** rwk,
   /data/** rw,
   /os/** rw,
   /run/** rwk,
