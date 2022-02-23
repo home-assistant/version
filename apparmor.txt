@@ -38,6 +38,7 @@ profile hassio-supervisor flags=(attach_disconnected,mediate_deleted) {
   /data/** rw,
   /run/** rwk,
   /dev/tty rw,
+  /root/.cas/** rwk,
   /etc/resolv.conf rw,
   /run/docker.sock rw,
 
