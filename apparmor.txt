@@ -29,7 +29,6 @@ profile hassio-supervisor flags=(attach_disconnected,mediate_deleted) {
   /etc/cont-finish.d/** rwix,
 
   deny /proc/** wl,
-  deny /root/** wl,
   deny /sys/** wl,
 
   / r,
