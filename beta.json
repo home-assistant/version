@@ -41,7 +41,7 @@
   },
   "ota": "https://github.com/home-assistant/operating-system/releases/download/{version}/{os_name}_{board}-{version}.raucb",
   "cli": "2021.12.0",
-  "dns": "2021.06.0",
+  "dns": "2022.02.0",
   "audio": "2021.07.0",
   "multicast": "2022.02.0",
   "observer": "2021.10.0",
