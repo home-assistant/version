@@ -40,7 +40,7 @@
     "khadas-vim3": "8.0.dev20220427"
   },
   "ota": "https://os-builds.home-assistant.io/{version}/{os_name}_{board}-{version}.raucb",
-  "cli": "2022.04.dev2601",
+  "cli": "2022.05.dev0201",
   "dns": "2022.04.dev2502",
   "audio": "2022.04.dev2802",
   "multicast": "2022.02.dev2303",
