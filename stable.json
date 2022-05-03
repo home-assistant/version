@@ -1,6 +1,6 @@
 {
   "channel": "stable",
-  "supervisor": "2022.04.0",
+  "supervisor": "2022.05.0",
   "homeassistant": {
     "default": "2022.4.7",
     "qemux86": "2022.4.7",
@@ -40,9 +40,9 @@
     "khadas-vim3": "7.6"
   },
   "ota": "https://github.com/home-assistant/operating-system/releases/download/{version}/{os_name}_{board}-{version}.raucb",
-  "cli": "2021.12.0",
+  "cli": "2022.05.0",
   "dns": "2021.06.0",
-  "audio": "2021.07.0",
+  "audio": "2022.04.0",
   "multicast": "2022.02.0",
   "observer": "2021.10.0",
   "image": {
