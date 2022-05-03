@@ -36,6 +36,7 @@
     "odroid-n2": "8.0.rc3",
     "odroid-xu4": "8.0.rc3",
     "generic-x86-64": "8.0.rc3",
+    "generic-aarch64": "8.0.rc3",
     "intel-nuc": "8.0.rc3",
     "khadas-vim3": "8.0.rc3"
   },

@@ -36,6 +36,7 @@
     "odroid-n2": "8.0.dev20220427",
     "odroid-xu4": "8.0.dev20220427",
     "generic-x86-64": "8.0.dev20220427",
+    "generic-aarch64": "8.0.dev20220427",
     "intel-nuc": "8.0.dev20220427",
     "khadas-vim3": "8.0.dev20220427"
   },
