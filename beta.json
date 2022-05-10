@@ -40,6 +40,12 @@
     "intel-nuc": "8.0.rc4",
     "khadas-vim3": "8.0.rc4"
   },
+  "hassos-upgrade": {
+    "6": "6.6",
+    "5": "5.13",
+    "4": "4.20",
+    "3": "3.13"
+  },
   "ota": "https://github.com/home-assistant/operating-system/releases/download/{version}/{os_name}_{board}-{version}.raucb",
   "cli": "2022.05.0",
   "dns": "2022.04.1",
