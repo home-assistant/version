@@ -27,13 +27,13 @@
     {
       "name": "Home Assistant OS Installer for Yellow",
       "description": "Installer for Home Assistant Yellow Kit.",
-      "url": "https://github.com/NabuCasa/yellow-buildroot/releases/download/yellow-installer-20220830/yellow-installer-20220830.img.xz",
+      "url": "https://github.com/NabuCasa/yellow-buildroot/releases/download/yellow-installer-20221005/yellow-installer-20221005.img.xz",
       "icon": "https://version.home-assistant.io/rpi-imager-yellow-installer.png",
       "extract_size": 68157440,
-      "extract_sha256": "a3e91b1fc30a7bfde871b084cc3e80e20f2b72a32d98dd039acb30b167efbcaa",
-      "release_date": "20220830",
-      "image_download_size": 33109900,
-      "image_download_sha256": "de8550477613746c859943e4547eb20d49d8fa98b1ab605806315ea9d486b8ef",
+      "extract_sha256": "879e8ab250b7901e9701b247e7d0a84548648f2c15051bac5acd8ad46e7e41ab",
+      "release_date": "20221005",
+      "image_download_size": 32992576,
+      "image_download_sha256": "8210167cb8ebd6f54f58afdd554fbb0c70f687dbc61133405b2c2d9efa16b70b",
       "website": "https://yellow.home-assistant.io"
     }
   ]
