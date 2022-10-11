@@ -1,27 +1,27 @@
 {
   "os_list": [
     {
-      "name": "Home Assistant OS 9.0 (RPi 4/400)",
+      "name": "Home Assistant OS 9.2 (RPi 4/400)",
       "description": "Open source home automation that puts local control and privacy first.",
-      "url": "https://github.com/home-assistant/operating-system/releases/download/9.0/haos_rpi4-64-9.0.img.xz",
+      "url": "https://github.com/home-assistant/operating-system/releases/download/9.2/haos_rpi4-64-9.2.img.xz",
       "icon": "https://version.home-assistant.io/rpi-imager-haos.png",
       "extract_size": 2147483648,
-      "extract_sha256": "0ffc839100e7d95750e7bbe3ee697583e1168199e870180abf887bac451f81e9",
-      "release_date": "20220913",
-      "image_download_size": 273032272,
-      "image_download_sha256": "13d484f3d4f57d178c6d3daee666403036859fa50a768b6773f07602309193ab",
+      "extract_sha256": "be4cdd8b9d0c38729ab572e1e6cfceae613b412e35bc50d535fac122bbe0644e",
+      "release_date": "20221007",
+      "image_download_size": 273035012,
+      "image_download_sha256": "6ef6ba909914c92a5c5215775e030ae00439e661f41fb2f27eec52ff1d783270",
       "website": "https://www.home-assistant.io"
     },
     {
-      "name": "Home Assistant OS 9.0 (RPi 3)",
+      "name": "Home Assistant OS 9.2 (RPi 3)",
       "description": "Open source home automation that puts local control and privacy first.",
-      "url": "https://github.com/home-assistant/operating-system/releases/download/9.0/haos_rpi3-64-9.0.img.xz",
+      "url": "https://github.com/home-assistant/operating-system/releases/download/9.2/haos_rpi3-64-9.2.img.xz",
       "icon": "https://version.home-assistant.io/rpi-imager-haos.png",
       "extract_size": 2147483648,
-      "extract_sha256": "d7de7b9fd76405a3fa6d812394e798d9bbec189c0f0e18b47ac632c12fbed31e",
-      "release_date": "20220913",
-      "image_download_size": 271011896,
-      "image_download_sha256": "de59a21087479b74fb126044c17e685249747e3a37374155179fa41dba5a26b3",
+      "extract_sha256": "d545d6f1acd898cd17700e4555e21d4dc04047902ae662a5a2bbbf22db8365d7",
+      "release_date": "20221007",
+      "image_download_size": 270022852,
+      "image_download_sha256": "78434a0dcd0d8c2e936b1949f70833b966c8c6bb4e0e1419263bb794a6b7e62b",
       "website": "https://www.home-assistant.io"
     },
     {
