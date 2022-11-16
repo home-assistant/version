@@ -1,1 +1,10 @@
-version=$(curl -s https://version.home-assistant.io/stable.json | jq -r '.supervisor // "latest"' || echo "latest") source /etc/os-release && docker pull "ghcr.io/home-assistant/${SUPERVISOR_ARCH}-hassio-supervisor:${version}" && docker tag "ghcr.io/home-assistant/${SUPERVISOR_ARCH}-hassio-supervisor:${version}" "ghcr.io/home-assistant/${SUPERVISOR_ARCH}-hassio-supervisor:latest" && docker stop hassio_supervisor
+#!/bin/sh
+
+version=$(curl -s https://version.home-assistant.io/stable.json | jq -r '.supervisor // "latest"' || echo "latest")
+source /etc/os-release
+
+docker pull "ghcr.io/home-assistant/${SUPERVISOR_ARCH}-hassio-supervisor:${version}"
+docker tag "ghcr.io/home-assistant/${SUPERVISOR_ARCH}-hassio-supervisor:${version}" "ghcr.io/home-assistant/${SUPERVISOR_ARCH}-hassio-supervisor:latest"
+
+# hassos-supervisor script will recreate the container automatically.
+docker stop hassio_supervisor
