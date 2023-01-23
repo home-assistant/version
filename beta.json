@@ -50,7 +50,7 @@
     "3": "3.13"
   },
   "ota": "https://github.com/home-assistant/operating-system/releases/download/{version}/{os_name}_{board}-{version}.raucb",
-  "cli": "2022.11.0",
+  "cli": "2023.01.0",
   "dns": "2022.04.1",
   "audio": "2022.07.0",
   "multicast": "2022.02.0",
