@@ -57,7 +57,7 @@ jobs:
         with:
           cosign-release: 'v2.0.0'
 
-      - name: Sign
+      - name: Sign CAS
         uses: home-assistant/actions/helpers/codenotary@master
         with:
           source: ${{ matrix.path }}
@@ -73,7 +73,7 @@ jobs:
           images: ghcr.io/home-assistant/version/${{ matrix.path }}
           tags: type=sha,format=long
       
-      - name: Sign file
+      - name: Sign Cosign 
         run: |
           cosign sign --yes --key env://COSIGN_PRIVATE_KEY --output-signature ${{ matrix.path }}.sig ${TAGS}
         env:
