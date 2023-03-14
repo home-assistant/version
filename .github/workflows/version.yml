@@ -23,12 +23,28 @@ jobs:
   lint:
     name: Lint
     runs-on: ubuntu-latest
+    outputs:
+      files: ${{ steps.changed_files.outputs.files }}
     steps:
     - name: Checkout the repository
       uses: actions/checkout@v3
  
     - name: Lint with JQ
       uses: home-assistant/actions/helpers/jq@master
+    
+    - name: Get changed files for push
+      if: github.event_name == 'push'
+      id: changed_files_push
+      uses: jitterbit/get-changed-files@v1
+    
+    - name: Get changed files
+      id: changed_files
+      run: |
+        if [[ ${{ github.event_name }} == "push" ]]; then
+          echo "files=${{ steps.changed_files_push.outputs.all }}" >> $GITHUB_OUTPUT
+        else
+          echo "files=${{ github.event.inputs.files }}" >> $GITHUB_OUTPUT
+        fi
   
   signing:
     name: Sign ${{ matrix.path }}
@@ -82,7 +98,7 @@ jobs:
 
   upload:
     name: Upload
-    needs: ["signing"]
+    needs: ["signing", "lint"]
     if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     steps:
@@ -94,20 +110,6 @@ jobs:
       with:
         python-version: ${{ env.PYTHON_VERSION }}
 
-    - name: Get changed files for push
-      if: github.event_name == 'push'
-      id: changed_files_push
-      uses: jitterbit/get-changed-files@v1
-
-    - name: Get changed files
-      id: changed_files
-      run: |
-        if [[ ${{ github.event_name }} == "push" ]]; then
-          echo "::set-output name=files::${{ steps.changed_files_push.outputs.all }}"
-        else
-          echo "::set-output name=files::${{ github.event.inputs.files }}"
-        fi
-
     - name: Install AWS CLI
       run: pip install awscli
 
@@ -116,7 +118,7 @@ jobs:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       run: |
-        for file in ${{ steps.changed_files.outputs.files }}; do
+        for file in ${{ needs.lint.outputs.files }}; do
           if [[ "$file" =~ \.txt|\.json|\.png ]]; then
             aws s3 sync . s3://version.home-assistant.io --exclude "*" --include "$file"
           fi
@@ -126,7 +128,7 @@ jobs:
       id: flush
       run: |
         declare -a files
-        for file in ${{ steps.changed_files.outputs.files }}; do
+        for file in ${{ needs.lint.outputs.files }}; do
           if [[ "$file" =~ \.txt|\.json ]]; then
             files+=("\"https:\/\/version.home-assistant.io\/$file\", ")
           fi
@@ -139,4 +141,4 @@ jobs:
           "https://api.cloudflare.com/client/v4/zones/${{ secrets.CF_ZONE }}/purge_cache" \
           -H "Authorization: Bearer ${{ secrets.CF_TOKEN }}" \
           -H "Content-Type: application/json" \
-          --data '{"files": ${{ steps.flush.outputs.files }}}'
+          --data '{"files": ${{ needs.lint.outputs.files }}}'
