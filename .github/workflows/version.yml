@@ -14,9 +14,10 @@ on:
     - apparmor.txt
     - '*.json'
     - rpi-imager-haos.png
+    - homeassistant.pub
 
 env:
-  PYTHON_VERSION: "3.7"
+  PYTHON_VERSION: "3.10"
 
 jobs:
   lint:
@@ -44,12 +45,40 @@ jobs:
     steps:
       - name: Checkout the repository
         uses: actions/checkout@v3
+      
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v2.1.0
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      
+      - uses: sigstore/cosign-installer@main
+        with:
+          cosign-release: 'v2.0.0'
 
       - name: Sign
         uses: home-assistant/actions/helpers/codenotary@master
         with:
           source: ${{ matrix.path }}
           token: ${{ secrets.CAS_TOKEN }}
+      
+      - name: Upload file
+        run: |
+          cosign upload blob -f ${{ matrix.path }} ghcr.io/home-assistant/version/${{ matrix.path }}
+      
+      - id: docker_meta
+        uses: docker/metadata-action@v3.6.0
+        with:
+          images: ghcr.io/home-assistant/version/${{ matrix.path }}
+          tags: type=sha,format=long
+      
+      - name: Sign file
+        run: |
+          cosign sign --yes --key env://COSIGN_PRIVATE_KEY --output-signature ${{ matrix.path }}.sig ${TAGS}
+        env:
+          COSIGN_PRIVATE_KEY: ${{ secrets.COSIGN_KEY }}
+          TAGS: ${{ steps.docker_meta.outputs.tags }}
 
   upload:
     name: Upload
