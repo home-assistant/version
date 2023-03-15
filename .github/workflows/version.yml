@@ -184,7 +184,7 @@ jobs:
             fi
           fi
         done
-        echo "::set-output name=files::[$(echo ${files[@]} | rev | cut -c 2- | rev)]"
+        echo "files=[$(echo ${files[@]} | rev | cut -c 2- | rev)]" >> $GITHUB_OUTPUT
 
     - name: Flush CloudFlare cache
       run: |
