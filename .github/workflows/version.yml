@@ -77,7 +77,7 @@ jobs:
       - name: Check
         id: check
         run: |
-          if [[ "${{ steps.changed_files.outputs.all }}" =~ ${{ matrix.path }} ]]; then
+          if [[ "${{ needs.prepare.outputs.files }}" =~ ${{ matrix.path }} ]]; then
             echo "sign=yes" >> $GITHUB_OUTPUT
           fi
 
