@@ -114,21 +114,13 @@ jobs:
         if: steps.check.outputs.sign == 'yes'
         run: |
           cosign upload blob -f ${{ matrix.path }} ghcr.io/home-assistant/version/${{ matrix.path }}
-      
-      - id: docker_meta
-        if: steps.check.outputs.sign == 'yes'
-        uses: docker/metadata-action@v3.6.0
-        with:
-          images: ghcr.io/home-assistant/version/${{ matrix.path }}
-          tags: type=sha,format=long
-      
+
       - name: Sign Cosign
         if: steps.check.outputs.sign == 'yes'
         run: |
-          cosign sign --yes --key env://COSIGN_PRIVATE_KEY --output-signature ${{ matrix.path }}.sig ${TAGS}
+          cosign sign --yes --key env://COSIGN_PRIVATE_KEY --output-signature ${{ matrix.path }}.sig ghcr.io/home-assistant/version/${{ matrix.path }}
         env:
           COSIGN_PRIVATE_KEY: ${{ secrets.COSIGN_KEY }}
-          TAGS: ${{ steps.docker_meta.outputs.tags }}
 
       - name: Upload signature
         if: steps.check.outputs.sign == 'yes'
