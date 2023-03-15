@@ -14,9 +14,12 @@ on:
     - apparmor.txt
     - '*.json'
     - rpi-imager-haos.png
+    - homeassistant.pub
 
 env:
-  PYTHON_VERSION: "3.7"
+  PYTHON_VERSION: "3.10"
+  COSIGN_VERSION: "v2.0.0"
+  SIGNED_FILES: "apparmor.txt beta.json dev.json stable.json"
 
 jobs:
   lint:
@@ -28,10 +31,39 @@ jobs:
  
     - name: Lint with JQ
       uses: home-assistant/actions/helpers/jq@master
+    
+    - name: Get changed files for push
+      if: github.event_name == 'push'
+      id: changed_files_push
+      uses: jitterbit/get-changed-files@v1
+
+  prepare:
+    name: Prepare
+    needs: ["lint"]
+    runs-on: ubuntu-latest
+    outputs:
+      files: ${{ steps.changed_files.outputs.files }}
+    steps:
+    - name: Checkout the repository
+      uses: actions/checkout@v3
+    
+    - name: Get changed files for push
+      if: github.event_name == 'push'
+      id: changed_files_push
+      uses: jitterbit/get-changed-files@v1
+
+    - name: Get changed files
+      id: changed_files
+      run: |
+        if [[ ${{ github.event_name }} == "push" ]]; then
+          echo "files=${{ steps.changed_files_push.outputs.all }}" >> $GITHUB_OUTPUT
+        else
+          echo "files=${{ github.event.inputs.files }}" >> $GITHUB_OUTPUT
+        fi
   
   signing:
     name: Sign ${{ matrix.path }}
-    needs: ["lint"]
+    needs: ["prepare"]
     if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     strategy:
@@ -42,18 +74,79 @@ jobs:
           - dev.json
           - apparmor.txt
     steps:
-      - name: Checkout the repository
-        uses: actions/checkout@v3
+      - name: Check
+        id: check
+        run: |
+          if [[ "${{ needs.prepare.outputs.files }}" =~ ${{ matrix.path }} ]]; then
+            echo "sign=yes" >> $GITHUB_OUTPUT
+          fi
 
-      - name: Sign
+      - name: Checkout the repository
+        if: steps.check.outputs.sign == 'yes'
+        uses: actions/checkout@v3
+      
+      - name: Login to GitHub Container Registry
+        if: steps.check.outputs.sign == 'yes'
+        uses: docker/login-action@v2.1.0
+        with:
+          registry: ghcr.io
+          username: home-assistant
+          password: ${{ secrets.GITHUB_TOKEN }}
+      
+      - uses: sigstore/cosign-installer@main
+        if: steps.check.outputs.sign == 'yes'
+        with:
+          cosign-release: ${{ env.COSIGN_VERSION }}
+
+      - name: Setup Python version ${{ env.PYTHON_VERSION }}
+        if: steps.check.outputs.sign == 'yes'
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Install AWS CLI
+        if: steps.check.outputs.sign == 'yes'
+        run: pip install awscli
+
+      - name: Sign CAS
+        if: steps.check.outputs.sign == 'yes'
         uses: home-assistant/actions/helpers/codenotary@master
         with:
           source: ${{ matrix.path }}
           token: ${{ secrets.CAS_TOKEN }}
+      
+      - name: Upload file
+        if: steps.check.outputs.sign == 'yes'
+        run: |
+          cosign upload blob -f ${{ matrix.path }} ghcr.io/home-assistant/version/${{ matrix.path }}
+      
+      - id: docker_meta
+        if: steps.check.outputs.sign == 'yes'
+        uses: docker/metadata-action@v3.6.0
+        with:
+          images: ghcr.io/home-assistant/version/${{ matrix.path }}
+          tags: type=sha,format=long
+      
+      - name: Sign Cosign
+        if: steps.check.outputs.sign == 'yes'
+        run: |
+          cosign sign --yes --key env://COSIGN_PRIVATE_KEY --output-signature ${{ matrix.path }}.sig ${TAGS}
+        env:
+          COSIGN_PRIVATE_KEY: ${{ secrets.COSIGN_KEY }}
+          TAGS: ${{ steps.docker_meta.outputs.tags }}
+
+      - name: Upload signature
+        if: steps.check.outputs.sign == 'yes'
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        run: |
+          aws s3 sync . s3://version.home-assistant.io --exclude "*" --include "${{ matrix.path }}.sig"
+
 
   upload:
     name: Upload
-    needs: ["signing"]
+    needs: ["signing", "prepare"]
     if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     steps:
@@ -65,29 +158,15 @@ jobs:
       with:
         python-version: ${{ env.PYTHON_VERSION }}
 
-    - name: Get changed files for push
-      if: github.event_name == 'push'
-      id: changed_files_push
-      uses: jitterbit/get-changed-files@v1
-
-    - name: Get changed files
-      id: changed_files
-      run: |
-        if [[ ${{ github.event_name }} == "push" ]]; then
-          echo "::set-output name=files::${{ steps.changed_files_push.outputs.all }}"
-        else
-          echo "::set-output name=files::${{ github.event.inputs.files }}"
-        fi
-
     - name: Install AWS CLI
       run: pip install awscli
 
     - name: Upload files
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       run: |
-        for file in ${{ steps.changed_files.outputs.files }}; do
+        for file in ${{ needs.prepare.outputs.files }}; do
           if [[ "$file" =~ \.txt|\.json|\.png ]]; then
             aws s3 sync . s3://version.home-assistant.io --exclude "*" --include "$file"
           fi
@@ -97,12 +176,15 @@ jobs:
       id: flush
       run: |
         declare -a files
-        for file in ${{ steps.changed_files.outputs.files }}; do
+        for file in ${{ needs.prepare.outputs.files }}; do
           if [[ "$file" =~ \.txt|\.json ]]; then
             files+=("\"https:\/\/version.home-assistant.io\/$file\", ")
+            if [[ "${{ env.SIGNED_FILES }}" =~ $file ]];
+              files+=("\"https:\/\/version.home-assistant.io\/$file.sig\", ")
+            fi
           fi
         done
-        echo "::set-output name=files::[$(echo ${files[@]} | rev | cut -c 2- | rev)]"
+        echo "files=[$(echo ${files[@]} | rev | cut -c 2- | rev)]" >> $GITHUB_OUTPUT
 
     - name: Flush CloudFlare cache
       run: |
