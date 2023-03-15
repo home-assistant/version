@@ -31,11 +31,6 @@ jobs:
  
     - name: Lint with JQ
       uses: home-assistant/actions/helpers/jq@master
-    
-    - name: Get changed files for push
-      if: github.event_name == 'push'
-      id: changed_files_push
-      uses: jitterbit/get-changed-files@v1
 
   prepare:
     name: Prepare
