@@ -179,7 +179,7 @@ jobs:
         for file in ${{ needs.prepare.outputs.files }}; do
           if [[ "$file" =~ \.txt|\.json ]]; then
             files+=("\"https:\/\/version.home-assistant.io\/$file\", ")
-            if [[ "${{ env.SIGNED_FILES }}" =~ $file ]];
+            if [[ "${{ env.SIGNED_FILES }}" =~ $file ]]; then
               files+=("\"https:\/\/version.home-assistant.io\/$file.sig\", ")
             fi
           fi
