@@ -18,13 +18,15 @@ on:
 
 env:
   PYTHON_VERSION: "3.10"
-  COSIGN_VERSION: "v2.0.0"
+  COSIGN_VERSION: "v2.0.2"
   SIGNED_FILES: "apparmor.txt beta.json dev.json stable.json"
 
 jobs:
   lint:
     name: Lint
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
     steps:
     - name: Checkout the repository
       uses: actions/checkout@v3
@@ -118,9 +120,8 @@ jobs:
       - name: Sign Cosign
         if: steps.check.outputs.sign == 'yes'
         run: |
-          cosign sign --yes --key env://COSIGN_PRIVATE_KEY --output-signature ${{ matrix.path }}.sig ghcr.io/home-assistant/version/${{ matrix.path }}
-        env:
-          COSIGN_PRIVATE_KEY: ${{ secrets.COSIGN_KEY }}
+          cosign sign --yes ghcr.io/home-assistant/version/${{ matrix.path }}
+          cosign sign-blob --yes ${{ matrix.path }} --bundle ${{ matrix.path }}.sig
 
       - name: Upload signature
         if: steps.check.outputs.sign == 'yes'
