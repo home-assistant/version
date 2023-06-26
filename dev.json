@@ -40,7 +40,6 @@
     "odroid-xu4": "11.0.dev20230622",
     "generic-x86-64": "11.0.dev20230622",
     "generic-aarch64": "11.0.dev20230622",
-    "intel-nuc": "11.0.dev20230622",
     "khadas-vim3": "11.0.dev20230622"
   },
   "ota": "https://os-builds.home-assistant.io/{version}/{os_name}_{board}-{version}.raucb",
