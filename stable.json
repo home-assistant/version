@@ -55,7 +55,7 @@
   "dns": "2022.04.1",
   "audio": "2023.04.2",
   "multicast": "2022.02.0",
-  "observer": "2021.10.0",
+  "observer": "2022.10.0",
   "image": {
     "core": "homeassistant/{machine}-homeassistant",
     "supervisor": "homeassistant/{arch}-hassio-supervisor",
