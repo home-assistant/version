@@ -43,6 +43,15 @@
     "intel-nuc": "11.0.dev20230622",
     "khadas-vim3": "11.0.dev20230622"
   },
+  "hassos-upgrade": {
+    "9": "9.5",
+    "8": "8.5",
+    "7": "7.6",
+    "6": "6.6",
+    "5": "5.13",
+    "4": "4.20",
+    "3": "3.13"
+  },
   "ota": "https://os-builds.home-assistant.io/{version}/{os_name}_{board}-{version}.raucb",
   "cli": "2023.05.dev3101",
   "dns": "2022.04.dev2502",
