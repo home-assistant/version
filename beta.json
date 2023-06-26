@@ -40,7 +40,6 @@
     "odroid-xu4": "10.3",
     "generic-x86-64": "10.3",
     "generic-aarch64": "10.3",
-    "intel-nuc": "10.3",
     "khadas-vim3": "10.3"
   },
   "hassos-upgrade": {
