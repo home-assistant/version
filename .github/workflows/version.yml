@@ -69,6 +69,7 @@ jobs:
           - stable.json
           - beta.json
           - dev.json
+          - apparmor.txt
           - apparmor_stable.txt
           - apparmor_beta.txt
           - apparmor_dev.txt
