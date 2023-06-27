@@ -11,15 +11,14 @@ on:
   push:
     branches: ["master"]
     paths:
-    - apparmor.txt
+    - '*.txt'
     - '*.json'
-    - rpi-imager-haos.png
-    - homeassistant.pub
+    - '*.png'
 
 env:
   PYTHON_VERSION: "3.10"
   COSIGN_VERSION: "v2.0.2"
-  SIGNED_FILES: "apparmor.txt beta.json dev.json stable.json"
+  SIGNED_FILES: "apparmor.txt apparmor_beta.txt apparmor_dev.txt apparmor_stable.txt beta.json dev.json stable.json"
 
 jobs:
   lint:
@@ -71,6 +70,9 @@ jobs:
           - beta.json
           - dev.json
           - apparmor.txt
+          - apparmor_stable.txt
+          - apparmor_beta.txt
+          - apparmor_dev.txt
     steps:
       - name: Check
         id: check
