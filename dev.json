@@ -52,7 +52,7 @@
     "3": "3.13"
   },
   "ota": "https://os-builds.home-assistant.io/{version}/{os_name}_{board}-{version}.raucb",
-  "cli": "2023.05.dev3101",
+  "cli": "2023.06.dev2901",
   "dns": "2023.06.dev2901",
   "audio": "2023.06.dev2901",
   "multicast": "2022.02.dev2303",
