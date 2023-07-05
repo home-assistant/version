@@ -1,6 +1,6 @@
 {
   "channel": "stable",
-  "supervisor": "2023.06.4",
+  "supervisor": "2023.07.1",
   "homeassistant": {
     "default": "2023.6.3",
     "qemux86": "2023.6.3",
@@ -52,11 +52,11 @@
     "3": "3.13"
   },
   "ota": "https://github.com/home-assistant/operating-system/releases/download/{version}/{os_name}_{board}-{version}.raucb",
-  "cli": "2023.05.0",
-  "dns": "2022.04.1",
-  "audio": "2023.04.2",
-  "multicast": "2022.02.0",
-  "observer": "2022.10.0",
+  "cli": "2023.06.0",
+  "dns": "2023.06.2",
+  "audio": "2023.06.0",
+  "multicast": "2023.06.2",
+  "observer": "2023.06.0",
   "image": {
     "core": "homeassistant/{machine}-homeassistant",
     "supervisor": "homeassistant/{arch}-hassio-supervisor",
