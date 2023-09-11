@@ -26,7 +26,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout the repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
  
     - name: Lint with JQ
       uses: home-assistant/actions/helpers/jq@master
@@ -39,7 +39,7 @@ jobs:
       files: ${{ steps.changed_files.outputs.files }}
     steps:
     - name: Checkout the repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
     
     - name: Get changed files for push
       if: github.event_name == 'push'
@@ -83,7 +83,7 @@ jobs:
 
       - name: Checkout the repository
         if: steps.check.outputs.sign == 'yes'
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       
       - name: Login to GitHub Container Registry
         if: steps.check.outputs.sign == 'yes'
@@ -142,7 +142,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout the repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Setup Python version ${{ env.PYTHON_VERSION }}
       uses: actions/setup-python@v4
