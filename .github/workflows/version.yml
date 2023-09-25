@@ -107,13 +107,6 @@ jobs:
       - name: Install AWS CLI
         if: steps.check.outputs.sign == 'yes'
         run: pip install awscli
-
-      - name: Sign CAS
-        if: steps.check.outputs.sign == 'yes'
-        uses: home-assistant/actions/helpers/codenotary@master
-        with:
-          source: ${{ matrix.path }}
-          token: ${{ secrets.CAS_TOKEN }}
       
       - name: Upload file
         if: steps.check.outputs.sign == 'yes'
