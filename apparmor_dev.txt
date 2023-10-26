@@ -72,7 +72,7 @@ profile hassio-supervisor flags=(attach_disconnected,mediate_deleted) {
     signal (receive) set=(term),
 
     /bin/busybox ix,
-    /usr/bin/git mr,
+    /usr/bin/git mrix,
     /usr/libexec/git-core/* ix,
 
     deny /data/homeassistant rw,
