@@ -10,7 +10,8 @@
       "release_date": "2023-10-13",
       "image_download_size": 266711840,
       "image_download_sha256": "62dc63439cb669680a2afdfe4fd46217672b4507bf7ac4e3922d0940cd08124e",
-      "website": "https://www.home-assistant.io"
+      "website": "https://www.home-assistant.io",
+      "devices": ["pi4-64bit"]
     },
     {
       "name": "Home Assistant OS 11.0 (RPi 3)",
@@ -22,7 +23,8 @@
       "release_date": "2023-10-13",
       "image_download_size": 263986900,
       "image_download_sha256": "e622ec4b182bc3107120b678227b083492117316d99829778ed1c25482a62096",
-      "website": "https://www.home-assistant.io"
+      "website": "https://www.home-assistant.io",
+      "devices": ["pi3-64bit"]
     },
     {
       "name": "Home Assistant OS Installer for Yellow",
@@ -34,7 +36,8 @@
       "release_date": "20230821",
       "image_download_size": 33358680,
       "image_download_sha256": "5464a4a085535a99fa26acbac3a25d3fb6e7cfadeff7ddabfa4b8c68b519caa3",
-      "website": "https://yellow.home-assistant.io"
+      "website": "https://yellow.home-assistant.io",
+      "devices": ["pi4-64bit"]
     }
   ]
 }
