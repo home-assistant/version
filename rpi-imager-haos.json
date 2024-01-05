@@ -1,30 +1,30 @@
 {
   "os_list": [
     {
-      "name": "Home Assistant OS 11.2 (RPi 4/400)",
+      "name": "Home Assistant OS 11.3 (RPi 4/400)",
       "description": "Open source home automation that puts local control and privacy first.",
-      "url": "https://github.com/home-assistant/operating-system/releases/download/11.2/haos_rpi4-64-11.2.img.xz",
+      "url": "https://github.com/home-assistant/operating-system/releases/download/11.3/haos_rpi4-64-11.3.img.xz",
       "icon": "https://version.home-assistant.io/brand/logo.png",
       "extract_size": 2147483648,
-      "extract_sha256": "bbfe3f36fb63c66544a5a8d0b500ea34dbca13b311ead122945e717ba2c20ea9",
-      "release_date": "2023-12-04",
-      "image_download_size": 303637916,
-      "image_download_sha256": "8c72f59e4095994a11e77bb2a25a51c95e282b5b604716acc4e3bf7644e9b868",
+      "extract_sha256": "a1bc66b3fa57bb9dc3f44fbc50868e1c55dc35e579dc119211385ff95d9bc16b",
+      "release_date": "2024-01-04",
+      "image_download_size": 302539140,
+      "image_download_sha256": "7d7924df584ead64ac5ed32593a64cb73d21660ada6cf6507a5cdfbbbcd143e0",
       "website": "https://www.home-assistant.io",
       "devices": [
         "pi4-64bit"
       ]
     },
     {
-      "name": "Home Assistant OS 11.2 (RPi 3)",
+      "name": "Home Assistant OS 11.3 (RPi 3)",
       "description": "Open source home automation that puts local control and privacy first.",
-      "url": "https://github.com/home-assistant/operating-system/releases/download/11.2/haos_rpi3-64-11.2.img.xz",
+      "url": "https://github.com/home-assistant/operating-system/releases/download/11.3/haos_rpi3-64-11.3.img.xz",
       "icon": "https://version.home-assistant.io/brand/logo.png",
       "extract_size": 2147483648,
-      "extract_sha256": "476f56f14554464b383ad43f52a2ebd4f7351c64de6444df356324807c867c80",
-      "release_date": "2023-12-04",
-      "image_download_size": 301452172,
-      "image_download_sha256": "416a0e1ee3748858bcd540c5282324dee002715c4961f4f08493f713ff3d97a6",
+      "extract_sha256": "b0a045c10396a36c34d1699639815d24df3247befd0b6805acdcc8fa86c0a3bd",
+      "release_date": "2024-01-04",
+      "image_download_size": 299657012,
+      "image_download_sha256": "dd7c85a6d63ec911bb3ebffc55c80133d4d7bd11a431c580d5073aa7026fc5d4",
       "website": "https://www.home-assistant.io",
       "devices": [
         "pi3-64bit"
