@@ -1,7 +1,7 @@
 {
   "os_list": [
     {
-      "name": "Home Assistant OS 11.5 (RPi 5) - Preview",
+      "name": "Home Assistant OS 11.5 (RPi 5)",
       "description": "Open source home automation that puts local control and privacy first.",
       "url": "https://github.com/home-assistant/operating-system/releases/download/11.5/haos_rpi5-64-11.5.img.xz",
       "icon": "https://version.home-assistant.io/brand/logo.png",
