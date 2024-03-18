@@ -87,7 +87,7 @@ jobs:
       
       - name: Login to GitHub Container Registry
         if: steps.check.outputs.sign == 'yes'
-        uses: docker/login-action@v3.0.0
+        uses: docker/login-action@v3.1.0
         with:
           registry: ghcr.io
           username: home-assistant
