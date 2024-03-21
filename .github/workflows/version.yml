@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       files:
-        description: 'File(s) to run action against'
+        description: 'File(s) to run action against (space separated)'
         required: true
   pull_request:
     branches: ["master"]
@@ -54,8 +54,17 @@ jobs:
       id: generate_matrix
       with:
         script: |
-          const files = ${{ steps.changed_files_push.outputs.all }}
-          return { "path": files }
+          if ("${{ github.event_name }}" == "push") {
+            const changed_files = JSON.parse('${{ steps.changed_files_push.outputs.all }}')
+            const all_files = "${{ env.SIGNED_FILES }}".split(' ')
+            // Sign all files in case this workflow changes.
+            if (changed_files.includes(".github/workflows/version.yml")) {
+              return { "path": all_files }
+            }
+            return { "path": changed_files }
+          } else {
+            return { "path": "${{ github.event.inputs.files }}".split(' ') }
+          }
   
   signing:
     name: Sign ${{ matrix.path }}
