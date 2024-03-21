@@ -55,7 +55,7 @@ jobs:
       with:
         script: |
           const all_files = "${{ env.SIGNED_FILES }}".split(' ')
-          if ("${{ github.event_name }}" == "push") {
+          if ("${{ github.event_name }}" === "push") {
             const changed_files = JSON.parse('${{ steps.changed_files_push.outputs.all }}')
             // Sign all files in case this workflow changes.
             if (changed_files.includes(".github/workflows/version.yml")) {
