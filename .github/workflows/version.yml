@@ -37,6 +37,7 @@ jobs:
     needs: ["lint"]
     runs-on: ubuntu-latest
     outputs:
+      files: ${{ steps.changed_files.outputs.files }}
       sign_matrix: ${{ steps.generate_matrix.outputs.result }}
     steps:
     - name: Checkout the repository
