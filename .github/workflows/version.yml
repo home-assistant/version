@@ -54,17 +54,20 @@ jobs:
       id: generate_matrix
       with:
         script: |
+          files_to_sign = []
+          const all_files = "${{ env.SIGNED_FILES }}".split(' ')
           if ("${{ github.event_name }}" == "push") {
             const changed_files = JSON.parse('${{ steps.changed_files_push.outputs.all }}')
-            const all_files = "${{ env.SIGNED_FILES }}".split(' ')
             // Sign all files in case this workflow changes.
             if (changed_files.includes(".github/workflows/version.yml")) {
-              return { "path": all_files }
+              files_to_sign = all_files
             }
-            return { "path": changed_files }
+            files_to_sign = changed_files.filter(value => all_files.includes(value))
           } else {
-            return { "path": "${{ github.event.inputs.files }}".split(' ') }
+            input_files = "${{ github.event.inputs.files }}".split(' ')
+            files_to_sign = input_files.filter(value => all_files.includes(value))
           }
+          return { "path": files_to_sign }
   
   signing:
     name: Sign ${{ matrix.path }}
