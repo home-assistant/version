@@ -37,8 +37,8 @@ jobs:
     needs: ["lint"]
     runs-on: ubuntu-latest
     outputs:
-      files: ${{ steps.changed_files.outputs.files }}
-      sign_matrix: ${{ steps.generate_matrix.outputs.result }}
+      files: ${{ steps.calc_file_list.outputs.changed_files }}
+      sign_matrix: ${{ steps.calc_file_list.outputs.result }}
     steps:
     - name: Checkout the repository
       uses: actions/checkout@v4
@@ -50,22 +50,24 @@ jobs:
       with:
         format: 'json'
 
-    - name: Create sign matrix
+    - name: Calculate files to sign and push
       uses: actions/github-script@v7
-      id: generate_matrix
+      id: calc_file_list
       with:
         script: |
-          const all_files = "${{ env.SIGNED_FILES }}".split(' ')
+          const signed_files = "${{ env.SIGNED_FILES }}".split(' ')
           if ("${{ github.event_name }}" === "push") {
-            const changed_files = JSON.parse('${{ steps.changed_files_push.outputs.all }}')
+            changed_files = JSON.parse('${{ steps.changed_files_push.outputs.all }}')
             // Sign all files in case this workflow changes.
             if (changed_files.includes(".github/workflows/version.yml")) {
-              return all_files
+              changed_files = [...new Set([...changed_files, ...signed_files])]
             }
-            return changed_files.filter(value => all_files.includes(value))
+            core.setOutput("changed_files", changed_files.join(' '))
+            return changed_files.filter(value => signed_files.includes(value))
           } else {
             input_files = "${{ github.event.inputs.files }}".split(' ')
-            return input_files.filter(value => all_files.includes(value))
+            core.setOutput("changed_files", input_files.join(' '))
+            return input_files.filter(value => signed_files.includes(value))
           }
   
   signing:
