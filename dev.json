@@ -60,7 +60,7 @@
   },
   "ota": "https://os-artifacts.home-assistant.io/{version}/{os_name}_{board}-{version}.raucb",
   "cli": "2024.04.0.dev0401",
-  "dns": "2024.03.0.dev1101",
+  "dns": "2024.04.0.dev0401",
   "audio": "2023.12.0.dev1203",
   "multicast": "2024.03.0.dev0701",
   "observer": "2024.03.0.dev2102",
