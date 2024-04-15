@@ -124,7 +124,7 @@ jobs:
   upload:
     name: Upload
     needs: ["signing", "prepare"]
-    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+    if: ${{ !(failure() || cancelled()) && (github.event_name == 'push' || github.event_name == 'workflow_dispatch') }}
     runs-on: ubuntu-latest
     steps:
     - name: Checkout the repository
