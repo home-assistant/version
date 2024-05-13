@@ -125,7 +125,7 @@ jobs:
     name: Upload
     needs: ["signing", "prepare"]
     # Make sure to run this job even if signing has been skipped.
-    if: ${{ !(failure() || cancelled()) && (github.event_name == 'push' || github.event_name == 'workflow_dispatch') }}
+    if: ${{ !failure() && !cancelled() && (github.event_name == 'push' || github.event_name == 'workflow_dispatch') }}
     runs-on: ubuntu-latest
     steps:
     - name: Checkout the repository
