@@ -1,45 +1,45 @@
 {
   "os_list": [
     {
-      "name": "Home Assistant OS 12.3 (RPi 5)",
+      "name": "Home Assistant OS 12.4 (RPi 5)",
       "description": "Open source home automation that puts local control and privacy first.",
-      "url": "https://github.com/home-assistant/operating-system/releases/download/12.3/haos_rpi5-64-12.3.img.xz",
+      "url": "https://github.com/home-assistant/operating-system/releases/download/12.4/haos_rpi5-64-12.4.img.xz",
       "icon": "https://version.home-assistant.io/brand/logo.png",
       "extract_size": 2147483648,
-      "extract_sha256": "520dcd7413392847327a5042d0c93ccb220d55b74c9c7af0a98c73c8c30dedb8",
-      "release_date": "2024-05-08",
-      "image_download_size": 270997148,
-      "image_download_sha256": "1eec3e58b2b265e14d28c082ffdd0c2e07d218882429c2d1cf8b35b931715c51",
+      "extract_sha256": "d3c779c1af62300a689cb9f6db72c8bada1a4e02649c63922f0c8db9495f2a56",
+      "release_date": "2024-06-18",
+      "image_download_size": 282171876,
+      "image_download_sha256": "019a662e8898cc957cc9614f60782526de3675b6def6b148bcd7ef57184acd13",
       "website": "https://www.home-assistant.io",
       "devices": [
         "pi5-64bit"
       ]
     },
     {
-      "name": "Home Assistant OS 12.3 (RPi 4/400)",
+      "name": "Home Assistant OS 12.4 (RPi 4/400)",
       "description": "Open source home automation that puts local control and privacy first.",
-      "url": "https://github.com/home-assistant/operating-system/releases/download/12.3/haos_rpi4-64-12.3.img.xz",
+      "url": "https://github.com/home-assistant/operating-system/releases/download/12.4/haos_rpi4-64-12.4.img.xz",
       "icon": "https://version.home-assistant.io/brand/logo.png",
       "extract_size": 2147483648,
-      "extract_sha256": "2eec88bf183df66a41e745dccc9225b994d4adefd1c8b9350fc0b826f1536052",
-      "release_date": "2024-05-08",
-      "image_download_size": 264231264,
-      "image_download_sha256": "e53d19f4ecc4aa7cdaae1f75f1048d7abe0e250b43656dc5496e99242d30a63d",
+      "extract_sha256": "1e3a2d28e44e4356fcef8bccba763e1826d6285763b986e0148fd6b30e0b9831",
+      "release_date": "2024-06-18",
+      "image_download_size": 274004396,
+      "image_download_sha256": "e918b90756e71c6ef981e4b78c23508fad7c6b1d21177ae50ded50df78474bc1",
       "website": "https://www.home-assistant.io",
       "devices": [
         "pi4-64bit"
       ]
     },
     {
-      "name": "Home Assistant OS 12.3 (RPi 3)",
+      "name": "Home Assistant OS 12.4 (RPi 3)",
       "description": "Open source home automation that puts local control and privacy first.",
-      "url": "https://github.com/home-assistant/operating-system/releases/download/12.3/haos_rpi3-64-12.3.img.xz",
+      "url": "https://github.com/home-assistant/operating-system/releases/download/12.4/haos_rpi3-64-12.4.img.xz",
       "icon": "https://version.home-assistant.io/brand/logo.png",
       "extract_size": 2147483648,
-      "extract_sha256": "015c95580a619417da91711d17dfb606f7b5926bb3cc8aa649c627862d95b8bd",
-      "release_date": "2024-05-08",
-      "image_download_size": 260521780,
-      "image_download_sha256": "d96f8c9a0f9329dc39b403b1f1737950af9377c395bff126d91d77e8178102b3",
+      "extract_sha256": "0b88847409ee70cbbd249ad20d0edcac58783060708b33448acda45355fd14cb",
+      "release_date": "2024-06-18",
+      "image_download_size": 270659512,
+      "image_download_sha256": "12f4d01d055003406663535e492af2a5396f862b28314b5e1ba1fb3432af4cd5",
       "website": "https://www.home-assistant.io",
       "devices": [
         "pi3-64bit"
