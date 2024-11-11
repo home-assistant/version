@@ -104,13 +104,8 @@ jobs:
       - name: Install AWS CLI
         run: pip install awscli
       
-      - name: Upload file
-        run: |
-          cosign upload blob -f ${{ matrix.path }} ghcr.io/home-assistant/version/${{ matrix.path }}
-
       - name: Sign Cosign
         run: |
-          cosign sign --yes ghcr.io/home-assistant/version/${{ matrix.path }}
           cosign sign-blob --yes ${{ matrix.path }} --bundle ${{ matrix.path }}.sig
 
       - name: Upload signature
