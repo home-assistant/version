@@ -19,7 +19,7 @@ on:
 env:
   PYTHON_VERSION: "3.10"
   COSIGN_VERSION: "v2.2.3"
-  SIGNED_FILES: "apparmor.txt apparmor_beta.txt apparmor_dev.txt apparmor_stable.txt beta.json dev.json stable.json"
+  SIGNED_FILES: ""
 
 jobs:
   lint:
@@ -63,7 +63,7 @@ jobs:
               changed_files = [...new Set([...changed_files, ...signed_files])]
             }
             core.setOutput("changed_files", changed_files.join(' '))
-            return changed_files.filter(value => signed_files.includes(value))
+            return []
           } else {
             input_files = "${{ github.event.inputs.files }}".split(' ')
             core.setOutput("changed_files", input_files.join(' '))
