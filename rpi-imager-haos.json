@@ -46,8 +46,24 @@
       ]
     },
     {
+      "name": "Home Assistant OS 14.0 (HA Yellow)",
+      "description": "Home Assistant OS for Home Assistant Yellow. To be flashed directly to an NVMe drive or Yellow booted using rpiboot.",
+      "url": "https://github.com/home-assistant/operating-system/releases/download/14.0/haos_yellow-14.0.img.xz",
+      "icon": "https://version.home-assistant.io/rpi-imager-yellow-installer.png",
+      "extract_size": 2147483648,
+      "extract_sha256": "e77edcaf3253ca1e641e8bccc772af6895f24967de1fe79b0cf3c27b7075456b",
+      "release_date": "2024-12-03",
+      "image_download_size": 302801188,
+      "image_download_sha256": "c9e64571706ed057e0e3c824e9db4470ec4568ed43abbf56f322232bad494db4",
+      "website": "https://yellow.home-assistant.io",
+      "devices": [
+        "pi4-64bit",
+        "pi5-64bit"
+      ]
+    },
+    {
       "name": "Home Assistant OS Installer for Yellow",
-      "description": "Installer for Home Assistant Yellow Kit.",
+      "description": "Installer for Home Assistant Yellow Kit (with CM4 only). Install on a USB flash drive and follow the installation instructions.",
       "url": "https://github.com/NabuCasa/yellow-buildroot/releases/download/yellow-installer-20231025/yellow-installer-20231025.img.xz",
       "icon": "https://version.home-assistant.io/rpi-imager-yellow-installer.png",
       "extract_size": 68157440,
