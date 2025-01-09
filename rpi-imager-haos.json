@@ -47,7 +47,7 @@
     },
     {
       "name": "Home Assistant OS 14.1 (Yellow)",
-      "description": "Home Assistant OS for Home Assistant Yellow. To be flashed directly to an NVMe drive or the Compute Module on Yellow  (using rpiboot).",
+      "description": "Home Assistant OS for Home Assistant Yellow. To be flashed directly to an NVMe drive or the Compute Module on Yellow (using rpiboot).",
       "url": "https://github.com/home-assistant/operating-system/releases/download/14.1/haos_yellow-14.1.img.xz",
       "icon": "https://version.home-assistant.io/rpi-imager-yellow-installer.png",
       "extract_size": 2147483648,
