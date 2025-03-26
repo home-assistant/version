@@ -61,9 +61,9 @@
   "ota": "https://os-artifacts.home-assistant.io/{version}/{os_name}_{board}-{version}.raucb",
   "cli": "2025.02.0",
   "dns": "2025.02.0",
-  "audio": "2023.12.0",
-  "multicast": "2024.03.0",
-  "observer": "2023.06.0",
+  "audio": "2025.02.0",
+  "multicast": "2025.02.0",
+  "observer": "2025.02.0",
   "image": {
     "core": "homeassistant/{machine}-homeassistant",
     "supervisor": "homeassistant/{arch}-hassio-supervisor",
