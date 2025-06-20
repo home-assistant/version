@@ -63,7 +63,7 @@
     "3": "3.13"
   },
   "ota": "https://os-artifacts.home-assistant.io/{version}/{os_name}_{board}-{version}.raucb",
-  "cli": "2025.04.0.dev1001",
+  "cli": "2025.06.0.dev2001",
   "dns": "2025.02.0.dev2601",
   "audio": "2025.02.0.dev2502",
   "multicast": "2025.02.0.dev2601",
