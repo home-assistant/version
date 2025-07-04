@@ -68,15 +68,6 @@
   "audio": "2025.02.0.dev2502",
   "multicast": "2025.02.0.dev2601",
   "observer": "2025.07.0.dev0301",
-  "image": {
-    "core": "ghcr.io/home-assistant/{machine}-homeassistant",
-    "supervisor": "ghcr.io/home-assistant/{arch}-hassio-supervisor",
-    "cli": "ghcr.io/home-assistant/{arch}-hassio-cli",
-    "audio": "ghcr.io/home-assistant/{arch}-hassio-audio",
-    "dns": "ghcr.io/home-assistant/{arch}-hassio-dns",
-    "observer": "ghcr.io/home-assistant/{arch}-hassio-observer",
-    "multicast": "ghcr.io/home-assistant/{arch}-hassio-multicast"
-  },
   "images": {
     "core": "ghcr.io/home-assistant/{machine}-homeassistant",
     "supervisor": "ghcr.io/home-assistant/{arch}-hassio-supervisor",
