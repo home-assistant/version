@@ -1,6 +1,6 @@
 {
   "channel": "beta",
-  "supervisor": "2025.07.0",
+  "supervisor": "2025.07.1",
   "homeassistant": {
     "default": "2025.7.1",
     "qemux86": "2025.7.1",
