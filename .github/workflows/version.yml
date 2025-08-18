@@ -27,7 +27,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout the repository
-      uses: actions/checkout@v4
+      uses: actions/checkout@v5
  
     - name: Lint with JQ
       uses: home-assistant/actions/helpers/jq@master
@@ -41,7 +41,7 @@ jobs:
       sign_matrix: ${{ steps.calc_file_list.outputs.result }}
     steps:
     - name: Checkout the repository
-      uses: actions/checkout@v4
+      uses: actions/checkout@v5
     
     - name: Get changed files for push
       if: github.event_name == 'push'
@@ -83,7 +83,7 @@ jobs:
         path: ${{ fromJson(needs.prepare.outputs.sign_matrix) }}
     steps:
       - name: Checkout the repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v3.5.0
@@ -124,7 +124,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout the repository
-      uses: actions/checkout@v4
+      uses: actions/checkout@v5
 
     - name: Setup Python version ${{ env.PYTHON_VERSION }}
       uses: actions/setup-python@v5
