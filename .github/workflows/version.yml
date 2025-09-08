@@ -51,7 +51,7 @@ jobs:
         format: 'json'
 
     - name: Calculate files to sign and push
-      uses: actions/github-script@v7
+      uses: actions/github-script@v8
       id: calc_file_list
       with:
         script: |
