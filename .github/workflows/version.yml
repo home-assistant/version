@@ -27,7 +27,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout the repository
-      uses: actions/checkout@v5
+      uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
  
     - name: Lint with JQ
       uses: home-assistant/actions/helpers/jq@master
@@ -41,17 +41,17 @@ jobs:
       sign_matrix: ${{ steps.calc_file_list.outputs.result }}
     steps:
     - name: Checkout the repository
-      uses: actions/checkout@v5
+      uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
     
     - name: Get changed files for push
       if: github.event_name == 'push'
       id: changed_files_push
-      uses: masesgroup/retrieve-changed-files@v3.0.0
+      uses: masesgroup/retrieve-changed-files@491e80760c0e28d36ca6240a27b1ccb8e1402c13 # v3.0.0
       with:
         format: 'json'
 
     - name: Calculate files to sign and push
-      uses: actions/github-script@v8
+      uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8.0.0
       id: calc_file_list
       with:
         script: |
@@ -83,21 +83,21 @@ jobs:
         path: ${{ fromJson(needs.prepare.outputs.sign_matrix) }}
     steps:
       - name: Checkout the repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
       
       - name: Login to GitHub Container Registry
-        uses: docker/login-action@v3.5.0
+        uses: docker/login-action@184bdaa0721073962dff0199f1fb9940f07167d1 # v3.5.0
         with:
           registry: ghcr.io
           username: home-assistant
           password: ${{ secrets.GITHUB_TOKEN }}
       
-      - uses: sigstore/cosign-installer@main
+      - uses: sigstore/cosign-installer@d58896d6a1865668819e1d91763c7751a165e159 # v3.9.2
         with:
           cosign-release: ${{ env.COSIGN_VERSION }}
 
       - name: Setup Python version ${{ env.PYTHON_VERSION }}
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@e797f83bcb11b83ae66e0230d6156d7c80228e7c # v6
         with:
           python-version: ${{ env.PYTHON_VERSION }}
 
@@ -124,10 +124,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout the repository
-      uses: actions/checkout@v5
+      uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
 
     - name: Setup Python version ${{ env.PYTHON_VERSION }}
-      uses: actions/setup-python@v6
+      uses: actions/setup-python@e797f83bcb11b83ae66e0230d6156d7c80228e7c # v6.0.0
       with:
         python-version: ${{ env.PYTHON_VERSION }}
 
