@@ -53,7 +53,7 @@
   "cli": "2026.02.0.dev0300",
   "dns": "2025.02.0.dev2601",
   "audio": "2025.10.0.dev2301",
-  "multicast": "2025.10.0.dev2302",
+  "multicast": "2026.02.0.dev1001",
   "observer": "2025.11.0.dev0601",
   "images": {
     "core": "ghcr.io/home-assistant/{machine}-homeassistant",
