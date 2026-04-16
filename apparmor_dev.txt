@@ -6,6 +6,8 @@ profile hassio-supervisor flags=(attach_disconnected,mediate_deleted) {
   #include <abstractions/base>
   #include <abstractions/python>
 
+  dbus,
+
   network unix stream,
   network inet stream,
   network inet6 stream,
