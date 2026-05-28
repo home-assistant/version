@@ -71,6 +71,7 @@ profile hassio-supervisor flags=(attach_disconnected,mediate_deleted) {
     /** r,
     /lib/* mr,
     /data/addons/** lrw,
+    /data/apps/** lrw,
     /data/tmp/** lrw,
     /usr/local/lib/** mr,
 
