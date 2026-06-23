@@ -37,7 +37,7 @@
     "odroid-c4": "18.0",
     "odroid-m1": "18.0",
     "odroid-m1s": "18.0",
-    "odroid-n2": "18.0",
+    "odroid-n2": "17.3",
     "generic-x86-64": "18.0",
     "generic-aarch64": "18.0",
     "khadas-vim3": "18.0"
