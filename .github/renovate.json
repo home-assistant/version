@@ -1,0 +1,42 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended", "helpers:pinGitHubActionDigests"],
+  "enabledManagers": ["custom.regex", "github-actions"],
+  "schedule": ["before 8am on monday"],
+  "semanticCommits": "disabled",
+  "labels": ["dependencies", "github_actions"],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "description": "cosign used to sign the version files, pinned in the workflow",
+      "managerFilePatterns": ["/^\\.github/workflows/version\\.yml$/"],
+      "matchStrings": ["COSIGN_VERSION: \"(?<currentValue>[^\"]+)\""],
+      "depNameTemplate": "sigstore/cosign",
+      "datasourceTemplate": "github-releases"
+    },
+    {
+      "customType": "regex",
+      "description": "Python used by the workflow",
+      "managerFilePatterns": ["/^\\.github/workflows/version\\.yml$/"],
+      "matchStrings": ["PYTHON_VERSION: \"(?<currentValue>[^\"]+)\""],
+      "depNameTemplate": "python",
+      "datasourceTemplate": "python-version",
+      "versioningTemplate": "python"
+    }
+  ],
+  "packageRules": [
+    {
+      "description": "Leave runner labels and action version inputs alone, Dependabot never updated those",
+      "matchManagers": ["github-actions"],
+      "matchDepTypes": ["github-runner", "uses-with"],
+      "enabled": false
+    },
+    {
+      "description": "Our own actions that follow a branch (like home-assistant/actions@master) float on purpose. Pinning them would open a digest PR in every repository for each change to them. Our own actions on a version tag are pinned like any other.",
+      "matchManagers": ["github-actions"],
+      "matchPackageNames": ["home-assistant/**"],
+      "matchCurrentValue": "/^(dev|main|master)$/",
+      "pinDigests": false
+    }
+  ]
+}
