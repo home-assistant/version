@@ -59,7 +59,7 @@ profile hassio-supervisor flags=(attach_disconnected,mediate_deleted) {
     network,
     deny network raw,
 
-    signal (receive) set=(term),
+    signal (receive) set=(term, cont),
 
     /bin/busybox ix,
     /usr/bin/git mrix,
