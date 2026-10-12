@@ -17,7 +17,6 @@ on:
     - '.github/workflows/version.yml'
 
 env:
-  PYTHON_VERSION: "3.10"
   COSIGN_VERSION: "v2.2.3"
   SIGNED_FILES: "apparmor.txt apparmor_beta.txt apparmor_dev.txt apparmor_stable.txt beta.json dev.json stable.json"
 
@@ -96,14 +95,6 @@ jobs:
         with:
           cosign-release: ${{ env.COSIGN_VERSION }}
 
-      - name: Setup Python version ${{ env.PYTHON_VERSION }}
-        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
-        with:
-          python-version: ${{ env.PYTHON_VERSION }}
-
-      - name: Install AWS CLI
-        run: pip install awscli
-      
       - name: Sign Cosign
         run: |
           cosign sign-blob --yes ${{ matrix.path }} --bundle ${{ matrix.path }}.sig
@@ -125,14 +116,6 @@ jobs:
     steps:
     - name: Checkout the repository
       uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-
-    - name: Setup Python version ${{ env.PYTHON_VERSION }}
-      uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
-      with:
-        python-version: ${{ env.PYTHON_VERSION }}
-
-    - name: Install AWS CLI
-      run: pip install awscli
 
     - name: Upload files
       env:

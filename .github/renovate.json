@@ -13,15 +13,6 @@
       "matchStrings": ["COSIGN_VERSION: \"(?<currentValue>[^\"]+)\""],
       "depNameTemplate": "sigstore/cosign",
       "datasourceTemplate": "github-releases"
-    },
-    {
-      "customType": "regex",
-      "description": "Python used by the workflow",
-      "managerFilePatterns": ["/^\\.github/workflows/version\\.yml$/"],
-      "matchStrings": ["PYTHON_VERSION: \"(?<currentValue>[^\"]+)\""],
-      "depNameTemplate": "python",
-      "datasourceTemplate": "python-version",
-      "versioningTemplate": "python"
     }
   ],
   "packageRules": [
