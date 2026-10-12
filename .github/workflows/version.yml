@@ -17,7 +17,7 @@ on:
     - '.github/workflows/version.yml'
 
 env:
-  COSIGN_VERSION: "v2.2.3"
+  COSIGN_VERSION: "v2.6.5"
   SIGNED_FILES: "apparmor.txt apparmor_beta.txt apparmor_dev.txt apparmor_stable.txt beta.json dev.json stable.json"
 
 jobs:
