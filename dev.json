@@ -52,7 +52,7 @@
   "ota": "https://os-artifacts.home-assistant.io/{version}/{os_name}_{board}-{version}.raucb",
   "cli": "2026.10.2.dev2701",
   "dns": "2026.10.0.dev2201",
-  "audio": "2026.10.0.dev2201",
+  "audio": "2026.10.1.dev2701",
   "multicast": "2026.10.1.dev2701",
   "observer": "2026.10.0.dev0601",
   "images": {
