@@ -38,6 +38,7 @@ jobs:
     outputs:
       files: ${{ steps.calc_file_list.outputs.changed_files }}
       sign_matrix: ${{ steps.calc_file_list.outputs.result }}
+      dispatch_channels: ${{ steps.calc_file_list.outputs.dispatch_channels }}
     steps:
     - name: Checkout the repository
       uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -55,8 +56,12 @@ jobs:
       with:
         script: |
           const signed_files = "${{ env.SIGNED_FILES }}".split(' ')
+          const full_image_channels = ['stable']
+          const setDispatchChannels = (files) => core.setOutput("dispatch_channels", JSON.stringify(
+            full_image_channels.filter(channel => files.includes(`${channel}.json`))))
           if ("${{ github.event_name }}" === "push") {
             changed_files = JSON.parse('${{ steps.changed_files_push.outputs.all }}')
+            setDispatchChannels(changed_files)
             // Sign all files in case this workflow changes.
             if (changed_files.includes(".github/workflows/version.yml")) {
               changed_files = [...new Set([...changed_files, ...signed_files])]
@@ -65,6 +70,7 @@ jobs:
             return changed_files.filter(value => signed_files.includes(value))
           } else {
             input_files = "${{ github.event.inputs.files }}".split(' ')
+            setDispatchChannels(input_files)
             core.setOutput("changed_files", input_files.join(' '))
             return input_files.filter(value => signed_files.includes(value))
           }
@@ -149,3 +155,32 @@ jobs:
           -H "Authorization: Bearer ${{ secrets.CF_PURGE_TOKEN }}" \
           -H "Content-Type: application/json" \
           --data '{"files": ${{ steps.flush.outputs.files }}}'
+
+  dispatch-full-images:
+    name: Dispatch full-image builds
+    needs: [prepare, upload]
+    if: >-
+      !failure() && !cancelled() && needs.upload.result == 'success' &&
+      needs.prepare.outputs.dispatch_channels != '[]'
+    runs-on: ubuntu-latest
+    permissions: {}
+    steps:
+      - name: Dispatch published channels
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        env:
+          CHANNELS: ${{ needs.prepare.outputs.dispatch_channels }}
+          VERSION_SHA: ${{ github.sha }}
+        with:
+          github-token: ${{ secrets.DISPATCH_TOKEN }}
+          script: |
+            const owner = 'home-assistant';
+            const repo = 'operating-system-full-images';
+            const { data: target } = await github.rest.repos.get({ owner, repo });
+            for (const channel of JSON.parse(process.env.CHANNELS)) {
+              await github.rest.actions.createWorkflowDispatch({
+                owner, repo, workflow_id: 'build-channel.yml',
+                ref: target.default_branch,
+                inputs: { channel, version_sha: process.env.VERSION_SHA, publish: 'true' },
+              });
+              core.info(`Dispatched ${channel} at ${process.env.VERSION_SHA}`);
+            }
